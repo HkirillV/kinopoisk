@@ -1,9 +1,10 @@
 
-function App() {
+import "./style"
 
+function App() {
   return (
     <div>
-
+    test
     </div>
   )
 }

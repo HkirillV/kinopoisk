@@ -1,0 +1,102 @@
+@use 'sass:math';
+
+@mixin fluid-text($max: 36, $min: 18) {
+  font-size: clamp(#{$min}px, math.div($max, 1366) * 100vw, #{$max}px);
+}
+
+@mixin fluid-padding-block($max: 24, $min: 10) {
+  padding-block: clamp(#{$min}px, math.div($max, 1366) * 100vw, #{$max}px);
+}
+
+@mixin rem-font-size($size, $base: 16) {
+  font-size: calc(math.div($size, $base) * 1rem);
+}
+
+@mixin reset-link {
+  color: inherit;
+
+  &,
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+@mixin reset-button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+
+@mixin flex-center ($isInline: false) {
+  @if $isInline {
+    display: inline-flex;
+  } @else {
+    display: flex;
+  }
+
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin abs-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50%, -50%
+}
+
+@mixin square ($size) {
+  width: $size;
+  height: auto;
+  aspect-ratio: 1;
+}
+
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      @content;
+    }
+  }
+}
+
+@mixin media-desktop {
+  @media (max-width: 1280px) { @content; }
+}
+
+@mixin media-table {
+  @media (max-width: 1024px) { @content; }
+}
+
+@mixin media-table-above {
+  @media (min-width: 1025px) { @content; }
+}
+
+@mixin media-tablet-xs {
+  @media (max-width: 920px) { @content; }
+}
+
+@mixin media-tablet-xs-above  {
+  @media (min-width: 921px) { @content; }
+}
+
+@mixin media-tablet-xxs {
+  @media (max-width: 768px) { @content; }
+}
+
+@mixin media-mobile-s {
+  @media (max-width: 640px) { @content; }
+}
+
+@mixin media-mobile-xs {
+  @media (max-width: 480px) { @content; }
+}
+
+@mixin media-mobile-xxs {
+  @media (max-width: 375px) { @content; }
+}
