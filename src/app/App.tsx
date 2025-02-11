@@ -1,11 +1,11 @@
-
-import "./style"
+import Providers from './providers';
+import AppRouter from './routers';
 
 function App() {
   return (
-    <div>
-    test
-    </div>
+      <Providers>
+        <AppRouter/>
+      </Providers>
   )
 }
 

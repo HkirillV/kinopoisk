@@ -1,4 +1,4 @@
-@import "@/shared/styles/mixins.scss";
+@use "@/shared/styles/mixins.scss";
 
 * {
   margin: 0;
@@ -18,6 +18,7 @@ html {
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
   height: 100% !important;
+  font: var(--base-font-weight) var(--base-font-size)/var(--base-line-height) var(--base-font-family);
   text-size-adjust: none;
   scroll-behavior: smooth;
 }
@@ -28,6 +29,8 @@ body {
   overflow-x: hidden;
   font: inherit;
   scroll-behavior: smooth;
+  color: var(--base-color-text);
+  background-color: var(--base-color-background);
 }
 
 a {
@@ -45,7 +48,6 @@ label,
 ::before,
 ::after,
 ::placeholder,
-
 button,
 input,
 textarea {
