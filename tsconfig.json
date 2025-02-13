@@ -1,10 +1,19 @@
 {
   "compilerOptions": {
-    "jsx": "react-jsx"
+    "target": "es6",
+    "module": "commonjs",
+    "baseUrl": "src",
+    "paths":  {
+      "@/*": ["src/*"],
+    },
+    "jsx": "react-jsx",
+    "strict": true,
+    "composite": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }
+

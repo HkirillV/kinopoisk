@@ -1,15 +1,12 @@
-import { BrowserRouter, Routes, Route } from 'react-router';
+import { BrowserRouter, Routes, Route } from "react-router";
+import { Header } from "widgets/Header";
 
-
-
-const AppRouter = () => {
+export const AppRouter = () => {
   return (
       <BrowserRouter>
         <Routes>
-          <Route path="/"/>
+          <Route path="/" element={<Header/>}/>
         </Routes>
       </BrowserRouter>
   )
 }
-
-export default AppRouter;
