@@ -1,10 +1,9 @@
+import { Header } from "@/widgets/Header";
 
-const Home = () => {
+export const Home = () => {
   return (
       <div className="home">
-
+          <Header />
       </div>
   )
 }
-
-export default Home

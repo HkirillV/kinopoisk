@@ -1,16 +1,26 @@
+import { useEffect } from "react"
+import { List } from '@/shared/ui/List'
+
 import "./Header.scss"
 
+const navList: string[] = ["Фильмы", "сериалы"]
+
 export const Header = () => {
+
+  useEffect(() => {
+
+  }, []);
+
   return (
       <header className="header">
         <nav className="header-navigation">
-          <ul className="header-navigation__list">
+          <List className="header-navigation__list">
             {
-              <li className="header-navigation__item">
-
-              </li>
+              navList.map((item: string) => (
+                  {item}
+              ))
             }
-          </ul>
+          </List>
         </nav>
       </header>
   )
