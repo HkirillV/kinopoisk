@@ -8,10 +8,14 @@ interface IMovie {
 
 const kinopoiskAPI = {
 
-  getMovies: async ():  Promise<AxiosResponse<IMovie[]>> => {
-    const params = new URLSearchParams({});
+  getMovies: async (): Promise<AxiosResponse<IMovie[]>> => {
 
-    return axiosClient.get(`/movie${params}`).then((data) => data)
+    const params = new URLSearchParams({
+
+    });
+
+    return axiosClient.get(`${params}`)
+        .then(data => data)
   }
 }
 

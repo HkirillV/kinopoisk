@@ -1,31 +1,27 @@
-import React, { FC } from "react"
-import { Button } from "@/shared/ui/Button"
+import React, { FC, JSX } from "react"
+import { v4 as uuidv4 } from 'uuid';
 
 import "./List.scss"
+import classNames from 'classnames';
 
 interface IListProps {
-  className: string
-  children: string[]
+  className?: string,
+  children: JSX.Element[]
 }
 
 export const List: FC<IListProps> = (props) => {
-console.log(props)
   const {
     className,
-    children,
+    children
   } = props
 
   return (
       <ul className={className}>
-        {
-          children.map((item: string) => (
-              <li className={className} key={index}>
-                <Button className="" >
-                  {item}
-                </Button>
-              </li>
-          ))
-        }
+        {children.map((child: JSX.Element) => (
+            <li className={classNames()} key={uuidv4()}>
+              {child}
+            </li>
+        ))}
       </ul>
   )
 }
