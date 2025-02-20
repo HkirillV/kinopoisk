@@ -6,7 +6,7 @@ import "./Button.scss"
 
 interface IButton {
   readonly children: string,
-  readonly type?: string
+  readonly type?: string,
   readonly href?: string,
   readonly className?: string,
   readonly target?: string,
