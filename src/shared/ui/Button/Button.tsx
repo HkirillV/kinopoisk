@@ -23,29 +23,50 @@ export const Button: FC<IButton> = (props) => {
     target,
   } = props
 
-  const isLink = Boolean(href)
-  const isRegularLink =
+  const isLink: boolean = Boolean(href)
+  const isRegularLink: boolean | undefined =
       href?.startsWith("https://") ||
       href?.startsWith("www.") ||
       href?.startsWith("#")
 
-  const Component = isLink ? (isRegularLink ? "a" : Link) : "button"
-  const combinedClassName = classNames(className, {
+  const combinedClassName: string = classNames(className, {
     button: !isLink
   });
 
-  const specificProps = isLink
-      ? {
-        ...(isRegularLink ? {href} : {to: href}),
-        target,
-        className: combinedClassName,
-      }
-      : {type, onClick, className: combinedClassName};
 
+  if (isLink) {
+    if (isRegularLink) {
+      return (
+          <a
+              className={combinedClassName}
+              href={href}
+              target={target}
+          >
+            {children}
+          </a>
+      )
+    }
+
+    if (href!) {
+      return (
+          <Link
+              className={combinedClassName}
+              to={href}
+              target={target}
+          >
+            {children}
+          </Link>
+      )
+    }
+  }
 
   return (
-      <Component {...specificProps}>
+      <Button className={combinedClassName}
+              href={href}
+              type={type}
+              onClick={onClick}
+              target={target}>
         {children}
-      </Component>
+      </Button>
   )
 }
