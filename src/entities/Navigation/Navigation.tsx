@@ -41,7 +41,7 @@ export const Navigation: FC = () => {
           {
             navigations.map(({id, title, href}) => (
                 <li className="navigation__item" key={id}>
-                  <Button className="navigation__link" to={href}>{title}</Button>
+                  <Button className="navigation__link" href={href}>{title}</Button>
                 </li>
             ))}
         </ul>

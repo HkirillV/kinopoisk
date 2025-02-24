@@ -1,0 +1,19 @@
+@use "@/shared/styles/mixins.scss";
+
+.navigation {
+
+  &__list {
+    display: flex;
+    column-gap: 16px;
+  }
+
+  &__link {
+    @include mixins.reset-link;
+    @include mixins.fluid-text(16);
+    color: var(--basic-gray);
+
+    @include mixins.hover {
+      color: var(--basic-white);
+    }
+  }
+}

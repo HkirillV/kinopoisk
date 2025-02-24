@@ -1,0 +1,6 @@
+@use "@/shared/styles/mixins.scss";
+
+.header {
+  @include mixins.fluid-padding-block();
+  display: flex;
+}

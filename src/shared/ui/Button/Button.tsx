@@ -5,11 +5,11 @@ import classNames from "classnames"
 import "./Button.scss"
 
 interface IButton {
-  readonly children: string,
-  readonly type?: string,
+  readonly children: React.ReactNode,
+  readonly type?: "button" | "submit" | "reset",
   readonly href?: string,
   readonly className?: string,
-  readonly target?: string,
+  readonly target?: "_blank" | "_self" | "_parent" | "_top",
   readonly onClick?: () => void,
 }
 
@@ -23,16 +23,19 @@ export const Button: FC<IButton> = (props) => {
     target,
   } = props
 
+  console.log(children)
+
   const isLink: boolean = Boolean(href)
-  const isRegularLink: boolean | undefined =
+  const isRegularLink: boolean = href ? (
       href?.startsWith("https://") ||
       href?.startsWith("www.") ||
       href?.startsWith("#")
+  ) : false
+
 
   const combinedClassName: string = classNames(className, {
     button: !isLink
   });
-
 
   if (isLink) {
     if (isRegularLink) {
@@ -47,26 +50,23 @@ export const Button: FC<IButton> = (props) => {
       )
     }
 
-    if (href!) {
-      return (
-          <Link
-              className={combinedClassName}
-              to={href}
-              target={target}
-          >
-            {children}
-          </Link>
-      )
-    }
+    return (
+        <Link
+            className={combinedClassName}
+            to={href || "/"}
+            target={target}
+        >
+          {children}
+        </Link>
+    )
   }
 
   return (
-      <Button className={combinedClassName}
-              href={href}
+      <button className={combinedClassName}
               type={type}
               onClick={onClick}
-              target={target}>
+      >
         {children}
-      </Button>
+      </button>
   )
 }
