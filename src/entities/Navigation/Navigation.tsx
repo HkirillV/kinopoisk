@@ -12,21 +12,26 @@ interface INav {
 const navigations: Array<INav> = [
   {
     id: 1,
-    title: "Фильмы",
+    title: "Главная",
     href: "/"
   },
   {
     id: 2,
-    title: "Сериалы",
+    title: "Фильмы",
     href: "/"
   },
   {
     id: 3,
-    title: "Мультфильмы",
+    title: "Сериалы",
     href: "/"
   },
   {
     id: 4,
+    title: "Мультфильмы",
+    href: "/"
+  },
+  {
+    id: 5,
     title: "ТВ",
     href: "/"
   }

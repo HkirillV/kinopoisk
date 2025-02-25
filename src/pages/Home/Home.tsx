@@ -1,4 +1,4 @@
-import { Header } from "@/widgets/Header";
+import { Header } from "@/widgets/Header/ui";
 
 export const Home = () => {
   return (

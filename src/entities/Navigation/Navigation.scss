@@ -1,6 +1,7 @@
 @use "@/shared/styles/mixins.scss";
 
 .navigation {
+  margin-inline: 25px  auto;
 
   &__list {
     display: flex;
@@ -9,8 +10,11 @@
 
   &__link {
     @include mixins.reset-link;
-    @include mixins.fluid-text(16);
-    color: var(--basic-gray);
+    @include mixins.fluid-text(16, 14);
+
+    & {
+      color: var(--basic-gray);
+    }
 
     @include mixins.hover {
       color: var(--basic-white);
