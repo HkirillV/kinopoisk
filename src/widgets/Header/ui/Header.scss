@@ -2,6 +2,13 @@
 
 .header {
   @include mixins.fluid-padding-block();
+
   display: flex;
   align-items: center;
+
+  &__search {
+    display: flex;
+    align-items: center;
+    column-gap: 6px;
+  }
 }

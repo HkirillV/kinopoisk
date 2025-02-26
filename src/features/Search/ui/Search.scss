@@ -1,0 +1,34 @@
+@use "@/shared/styles/mixins.scss";
+@use "@/shared/styles/animations.scss";
+
+.search {
+
+  &__icon {
+
+    height: 22px;
+    max-width: 22px;
+    width: 100%;
+    cursor: pointer;
+    color: var(--basic-gray);
+
+    @include mixins.hover {
+      color: var(--basic-white);
+    }
+  }
+
+  &__input {
+    @include mixins.fluid-text(16, 14);
+
+    padding-left: 32px;
+    border-radius: var(--border-radius-sm);
+    background-color: var(--basic-gray);
+    opacity: 0;
+    transform: translateX(0);
+    transform-origin: left center;
+    transition: all 0.3s ease-in-out;
+
+    @include mixins.hover {
+      background-color: var(--basic-white);
+    }
+  }
+}

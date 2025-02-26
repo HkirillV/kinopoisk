@@ -14,6 +14,7 @@ export const Header = () => {
             className="header__search"
             name="search"
             type="search"
+            placeholder="Search"
         />
       </header>
   )
