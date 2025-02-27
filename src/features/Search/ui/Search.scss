@@ -19,13 +19,17 @@
   &__input {
     @include mixins.fluid-text(16, 14);
 
-    padding-left: 32px;
-    border-radius: var(--border-radius-sm);
-    background-color: var(--basic-gray);
-    opacity: 0;
-    transform: translateX(0);
-    transform-origin: left center;
-    transition: all 0.3s ease-in-out;
+    & {
+      width: 22px;
+      height: 22px;
+      padding-left: 10px;
+      border-radius: var(--border-radius-sm);
+      background-color: var(--basic-gray);
+      opacity: 1;
+      transform: scaleX(1);
+      transform-origin: left center;
+      transition: all 0.3s ease-in-out;
+    }
 
     @include mixins.hover {
       background-color: var(--basic-white);

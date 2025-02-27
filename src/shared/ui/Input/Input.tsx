@@ -6,6 +6,7 @@ interface IInput {
   type: string;
   name: string;
   value: string;
+  disabled?: boolean;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
 }
@@ -19,6 +20,7 @@ export const Input: FC<IInput> = (props) => {
     name,
     value,
     onChange,
+    disabled,
     placeholder,
   } = props
 
@@ -28,6 +30,7 @@ export const Input: FC<IInput> = (props) => {
           type={type}
           name={name}
           value={value}
+          disabled={disabled}
           onChange={onChange}
           placeholder={placeholder}
       />

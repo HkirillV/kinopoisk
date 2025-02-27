@@ -7,6 +7,7 @@ interface ISearch {
   className: string;
   name: string;
   type: string;
+  disabled?: boolean;
   placeholder?: string;
 }
 
@@ -28,17 +29,24 @@ export const Search: FC<ISearch> = (props) => {
   }
 
   const onSearchIconClick = () => {
-    setIsOpen(prevState => !prevState)
+    setIsOpen(prevState => {
+      const newState = !prevState
+      if (newState) {
+        setSearch("")
+      }
+      return newState
+    })
   }
 
   return (
       <form className={classNames(className, "search")}>
         <RiSearchLine className="search__icon" onClick={onSearchIconClick}/>
         <Input
-            className={classNames("search__input", isOpen ? "is-active" : "")}
+            className={classNames("search__input", isOpen ? "is-visible-hidden" : "")}
             type={type}
             name={name}
             value={search}
+            disabled={!isOpen}
             onChange={onChange}
             placeholder={placeholder}
         />

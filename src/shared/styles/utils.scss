@@ -1,6 +1,15 @@
+@use "@/shared/styles/mixins.scss";
 
 .is-active {
-  opacity: 1;
-  transform: translateX(15%);
-  width: 180px;
+  animation-name: move-to-left;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.is-visible-hidden {
+  animation-name: move-to-right;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
 }
