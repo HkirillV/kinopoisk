@@ -6,12 +6,3 @@
     transform: scaleX(1);
   }
 }
-
-@keyframes move-to-right {
-  50% {
-    opacity: 0;
-    width: 0;
-    padding-left: 0;
-    transform: scaleX(0);
-  }
-}

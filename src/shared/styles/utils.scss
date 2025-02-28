@@ -1,14 +1,7 @@
 @use "@/shared/styles/mixins.scss";
 
-.is-active {
+.is-active-search {
   animation-name: move-to-left;
-  animation-duration: 0.7s;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-}
-
-.is-visible-hidden {
-  animation-name: move-to-right;
   animation-duration: 0.7s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;

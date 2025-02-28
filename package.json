@@ -11,6 +11,10 @@
   },
   "dependencies": {
     "@a1rth/css-normalize": "^1.1.9",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.6",
+    "@mui/material": "^6.4.6",
     "@reduxjs/toolkit": "^2.5.1",
     "axios": "^1.7.9",
     "classnames": "^2.5.1",

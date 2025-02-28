@@ -23,15 +23,12 @@ export const Button: FC<IButton> = (props) => {
     target,
   } = props
 
-  console.log(children)
-
   const isLink: boolean = Boolean(href)
   const isRegularLink: boolean = href ? (
       href?.startsWith("https://") ||
       href?.startsWith("www.") ||
       href?.startsWith("#")
   ) : false
-
 
   const combinedClassName: string = classNames(className, {
     button: !isLink

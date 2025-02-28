@@ -1,0 +1,67 @@
+@use "@/shared/styles/mixins.scss";
+
+.auth {
+  text-align: center;
+
+  &__icon {
+    height: 22px;
+    max-width: 22px;
+    width: 100%;
+    cursor: pointer;
+    color: var(--basic-gray)
+  }
+
+  .auth-form {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 25px;
+    height: 450px;
+    padding-inline: 45px;
+    border-radius: var(--border-radius-md);
+    background-color: var(--bisic-light-blue);
+
+    &__title {
+      text-align: center;
+    }
+
+    &__icon {
+      position: absolute;
+      top: 12px;
+      left: 10px;
+      height: 24px;
+      max-width: 24px;
+      width: 100%;
+      color: var(--basic-gray);
+    }
+
+    &__label {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__input {
+      height: var(--height-xl);
+      padding-left: 48px;
+      padding-right: 10px;
+      border-radius: var(--border-radius-sm);
+    }
+
+    &__button {
+      @include mixins.fluid-text(16, 14);
+
+      & {
+        height: var(--height-xl);
+        border-radius: var(--border-radius-sm);
+        background-color: var(--basic-blue);
+      }
+
+      @include mixins.hover {
+        opacity: 0.7;
+        transition: ease 0.3s;
+      }
+    }
+  }
+}

@@ -30,7 +30,7 @@ export const Search: FC<ISearch> = (props) => {
 
   const onSearchIconClick = () => {
     setIsOpen(prevState => {
-      const newState = !prevState
+      const newState:boolean = !prevState
       if (newState) {
         setSearch("")
       }
@@ -42,7 +42,7 @@ export const Search: FC<ISearch> = (props) => {
       <form className={classNames(className, "search")}>
         <RiSearchLine className="search__icon" onClick={onSearchIconClick}/>
         <Input
-            className={classNames("search__input", isOpen ? "is-visible-hidden" : "")}
+            className={classNames("search__input", isOpen ? "is-active-search" : "")}
             type={type}
             name={name}
             value={search}
