@@ -1,14 +1,14 @@
 import { FC, ReactNode } from "react"
 import classNames from "classnames"
 
+import "./SvgIcon.scss"
+
 interface ISvgIcon {
   className: string,
   children: ReactNode,
   src: string,
   alt: string,
 }
-
-import "./SvgIcon.scss"
 
 export const SvgIcon: FC<ISvgIcon> = (props) => {
   const {

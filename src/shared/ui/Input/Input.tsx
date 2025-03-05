@@ -1,6 +1,8 @@
 import { FC, ChangeEvent } from "react";
 import classNames from "classnames";
 
+import "./Input.scss"
+
 interface IInput {
   className: string;
   type: string;
@@ -10,8 +12,6 @@ interface IInput {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
 }
-
-import "./Input.scss"
 
 export const Input: FC<IInput> = (props) => {
   const {

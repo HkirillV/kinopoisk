@@ -1,7 +1,10 @@
 import { FC, useState, ChangeEvent } from "react";
 import { RiSearchLine } from "react-icons/ri";
 import classNames from "classnames";
-import { Input } from "@/shared/ui/Input"
+import { Input } from "@/shared/ui/Input";
+import { Button } from "@/shared/ui/Button";
+
+import "./Search.scss"
 
 interface ISearch {
   className: string;
@@ -10,8 +13,6 @@ interface ISearch {
   disabled?: boolean;
   placeholder?: string;
 }
-
-import "./Search.scss"
 
 export const Search: FC<ISearch> = (props) => {
   const {
@@ -40,21 +41,25 @@ export const Search: FC<ISearch> = (props) => {
 
   return (
       <form className={classNames(className, "search")}>
-        <RiSearchLine className="search__icon" onClick={onSearchIconClick}/>
-        {
-          !isOpen ? (
-              <span className="search__title">Поиск</span>
-          ) : null
-        }
-        <Input
-            className={classNames("search__input", isOpen ? "is-active-search" : "")}
-            type={type}
-            name={name}
-            value={search}
-            disabled={!isOpen}
-            onChange={onChange}
-            placeholder={placeholder}
-        />
+        <Button className="search__button" onClick={onSearchIconClick}>
+          <RiSearchLine className="search__icon"/>
+          {
+              !isOpen && (
+                  <span className="search__title">Поиск</span>
+              )
+          }
+        </Button>
+        <label className="search__label">
+          <Input
+              className={classNames("search__input", isOpen ? "is-active-search" : "")}
+              type={type}
+              name={name}
+              value={search}
+              disabled={!isOpen}
+              onChange={onChange}
+              placeholder={placeholder}
+          />
+        </label>
       </form>
   )
 }

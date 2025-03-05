@@ -15,13 +15,14 @@ export const Header = () => {
 
   return (
       <header className="header">
-        <Logo className="header__logo" to="/"/>
-        <Navigation/>
+        <h1 className="visible-hidden">Кинопоиск</h1>
+        <Logo className="header__logo" href="/"/>
+        <Navigation className="header__navigation"/>
         <Search
             className="header__search"
             name="search"
             type="search"
-            placeholder="Search"
+            placeholder="Поиск"
         />
         <Auth className="header__auth" isAuthOpen={isAuthOpen} onClick={onAuthButtonClick}/>
       </header>

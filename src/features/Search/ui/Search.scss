@@ -2,29 +2,36 @@
 @use "@/shared/styles/animations.scss";
 
 .search {
-  display: flex;
-  align-items: center;
+  @include mixins.flex-center(false);
+
   column-gap: 6px;
 
-  &__title {
-    cursor: pointer;
-    color: var(--basic-gray);
+  @include mixins.media-tablet-xs {
+    display: none;
+    visibility: hidden;
+  }
+
+
+  &__button {
+    @include mixins.fluid-text(16, 14);
+
+    & {
+      @include mixins.flex-center(false);
+      column-gap: 6px;
+      color: var(--basic-gray);
+      background-color: inherit;
+    }
 
     @include mixins.hover {
-      color: var(--basic-white);
+      .search__icon,
+      .search__title {
+        color: var(--basic-white);
+      }
     }
   }
 
   &__icon {
-    height: var(--height-sm);
-    max-width: 22px;
-    width: 100%;
-    cursor: pointer;
-    color: var(--basic-gray);
-
-    @include mixins.hover {
-      color: var(--basic-white);
-    }
+    @include mixins.square(22px);
   }
 
   &__input {
@@ -33,12 +40,16 @@
     & {
       height: var(--height-xl);
       width: 22px;
-      padding-left: 10px;
+      padding-inline: 10px;
       border-radius: var(--border-radius-md);
       background-color: var(--basic-gray);
       opacity: 0;
       transform: scaleX(0);
       transform-origin: left center;
+    }
+
+    &:focus {
+      border: 3px solid var(--bisic-light-blue);
     }
 
     @include mixins.hover {

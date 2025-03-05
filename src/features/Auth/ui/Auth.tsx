@@ -6,13 +6,13 @@ import PersonIcon from '@mui/icons-material/Person';
 import { Input } from "@/shared/ui/Input";
 import { Button } from "@/shared/ui/Button";
 
+import "./Auth.scss";
+
 interface IAuth {
   className: string,
   isAuthOpen: boolean
   onClick: () => void,
 }
-
-import "./Auth.scss"
 
 export const Auth: FC<IAuth> = (props) => {
   const {
@@ -39,34 +39,34 @@ export const Auth: FC<IAuth> = (props) => {
           Войти
         </Button>
         {
-          isAuthOpen ? (
-              <form className="auth-form">
-                <h3 className="auth-form__title">Авторизация</h3>
-                <label className="auth-form__label">
-                  <MdOutlineMailLock className="auth-form__icon"/>
-                  <Input
-                      className="auth-form__input"
-                      type="email"
-                      value={login}
-                      name="email"
-                      onChange={onChangeLogin}
-                      placeholder="email"
-                  />
-                </label>
-                <label className="auth-form__label">
-                  <RiLockPasswordLine className="auth-form__icon"/>
-                  <Input
-                      className="auth-form__input"
-                      type="password"
-                      value={password}
-                      name="password"
-                      onChange={onChangePassword}
-                      placeholder="password"
-                  />
-                </label>
-                <Button className="auth-form__button" type="submit">Войти</Button>
-              </form>
-          ) : null
+            isAuthOpen && (
+                <form className="auth-form">
+                  <h3 className="auth-form__title">Авторизация</h3>
+                  <label className="auth-form__label">
+                    <MdOutlineMailLock className="auth-form__icon"/>
+                    <Input
+                        className="auth-form__input"
+                        type="email"
+                        value={login}
+                        name="email"
+                        onChange={onChangeLogin}
+                        placeholder="email"
+                    />
+                  </label>
+                  <label className="auth-form__label">
+                    <RiLockPasswordLine className="auth-form__icon"/>
+                    <Input
+                        className="auth-form__input"
+                        type="password"
+                        value={password}
+                        name="password"
+                        onChange={onChangePassword}
+                        placeholder="password"
+                    />
+                  </label>
+                  <Button className="auth-form__button" type="submit">Войти</Button>
+                </form>
+            )
         }
       </div>
   )

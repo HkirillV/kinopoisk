@@ -1,5 +1,6 @@
 import { FC } from "react"
 import { Button } from "@/shared/ui/Button";
+import classNames from "classnames";
 
 import "./Navigation.scss"
 
@@ -7,6 +8,10 @@ interface INav {
   id: number,
   title: string,
   href: string,
+}
+
+interface INavigation {
+  className: string
 }
 
 const navigations: Array<INav> = [
@@ -37,11 +42,13 @@ const navigations: Array<INav> = [
   }
 ]
 
-
-export const Navigation: FC = () => {
+export const Navigation: FC<INavigation> = (props) => {
+  const {
+    className
+  } = props
 
   return (
-      <nav className="navigation">
+      <nav className={classNames(className, "navigation")}>
         <ul className="navigation__list">
           {
             navigations.map(({id, title, href}) => (

@@ -1,11 +1,11 @@
 import { FC } from "react"
-import { Link } from "react-router-dom";
 import classNames from 'classnames';
+import { Button } from "@/shared/ui/Button"
 import logo from "@/shared/assets/icons/logo.svg"
 
 interface ILogo {
-  className?: string;
-  to: string;
+  className: string;
+  href: string;
 }
 
 import "./Logo.scss"
@@ -13,17 +13,17 @@ import "./Logo.scss"
 export const Logo: FC<ILogo> = (props) => {
   const {
     className,
-    to
+    href
   } = props
 
   return (
-      <Link className={classNames(className, "logo")} to={to}>
+      <Button className={classNames(className, "logo")} href={href}>
         <img
             src={logo}
             width="66"
             height="66"
             loading="lazy"
             alt="/"/>
-      </Link>
+      </Button>
   )
 }
