@@ -10,14 +10,14 @@ import "./Auth.scss";
 
 interface IAuth {
   className: string,
-  isAuthOpen: boolean
+  isOpenAuth: boolean
   onClick: () => void,
 }
 
 export const Auth: FC<IAuth> = (props) => {
   const {
     className,
-    isAuthOpen,
+    isOpenAuth,
     onClick
   } = props
 
@@ -39,7 +39,7 @@ export const Auth: FC<IAuth> = (props) => {
           Войти
         </Button>
         {
-            isAuthOpen && (
+            isOpenAuth && (
                 <form className="auth-form">
                   <h3 className="auth-form__title">Авторизация</h3>
                   <label className="auth-form__label">

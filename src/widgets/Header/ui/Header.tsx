@@ -3,19 +3,20 @@ import { Logo } from "@/shared/ui/Logo";
 import { Navigation } from "@/entities/Navigation";
 import { Search } from "@/features/Search/ui";
 import { Auth } from "@/features/Auth/ui";
+import { BurgerMenu } from "@/entities/BurgerMenu/ui";
 
 import "./Header.scss"
 
 export const Header = () => {
-  const [isAuthOpen, setIsAuthOpen] = useState<boolean>(false);
+  const [isOpenAuth, setIsOpenAuth] = useState<boolean>(false);
 
   const onAuthButtonClick = () => {
-    setIsAuthOpen(prevState => !prevState);
+    setIsOpenAuth(prevState => !prevState);
   }
 
   return (
       <header className="header">
-        <h1 className="visible-hidden">Кинопоиск</h1>
+        <h1 className="visually-hidden">Кинопоиск</h1>
         <Logo className="header__logo" href="/"/>
         <Navigation className="header__navigation"/>
         <Search
@@ -24,7 +25,8 @@ export const Header = () => {
             type="search"
             placeholder="Поиск"
         />
-        <Auth className="header__auth" isAuthOpen={isAuthOpen} onClick={onAuthButtonClick}/>
+        <Auth className="header__auth" isOpenAuth={isOpenAuth} onClick={onAuthButtonClick}/>
+        <BurgerMenu/>
       </header>
   )
 }
