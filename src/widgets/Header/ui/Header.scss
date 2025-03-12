@@ -2,7 +2,25 @@
 
 .header {
   @include mixins.fluid-padding-block();
-
   display: flex;
   align-items: center;
+
+  &__logo {
+    @include mixins.media-tablet-xs {
+      margin-right: auto;
+    }
+  }
+
+  &__navigation {
+    margin-inline: 25px  auto;
+
+    @include mixins.media-tablet-xs {
+      display: none;
+      visibility: hidden;
+    }
+  }
+
+  &__auth {
+    margin-right: 15px;
+  }
 }

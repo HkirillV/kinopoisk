@@ -25,9 +25,9 @@ export const Button: FC<IButton> = (props) => {
 
   const isLink: boolean = Boolean(href)
   const isRegularLink: boolean = href ? (
-      href?.startsWith("https://") ||
-      href?.startsWith("www.") ||
-      href?.startsWith("#")
+    href?.startsWith("https://") ||
+    href?.startsWith("www.") ||
+    href?.startsWith("#")
   ) : false
 
   const combinedClassName: string = classNames(className, {
@@ -37,33 +37,33 @@ export const Button: FC<IButton> = (props) => {
   if (isLink) {
     if (isRegularLink) {
       return (
-          <a
-              className={combinedClassName}
-              href={href}
-              target={target}
-          >
-            {children}
-          </a>
+        <a
+          className={combinedClassName}
+          href={href}
+          target={target}
+        >
+          {children}
+        </a>
       )
     }
 
     return (
-        <Link
-            className={combinedClassName}
-            to={href || "/"}
-            target={target}
-        >
-          {children}
-        </Link>
+      <Link
+        className={combinedClassName}
+        to={href || "/"}
+        target={target}
+      >
+        {children}
+      </Link>
     )
   }
 
   return (
-      <button className={combinedClassName}
-              type={type}
-              onClick={onClick}
-      >
-        {children}
-      </button>
+    <button className={combinedClassName}
+            type={type}
+            onClick={onClick}
+    >
+      {children}
+    </button>
   )
 }

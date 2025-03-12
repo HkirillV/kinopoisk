@@ -3,14 +3,7 @@
 
 .search {
   @include mixins.flex-center(false);
-
   column-gap: 6px;
-
-  @include mixins.media-tablet-xs {
-    display: none;
-    visibility: hidden;
-  }
-
 
   &__button {
     @include mixins.fluid-text(16, 14);

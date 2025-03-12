@@ -4,11 +4,6 @@
   position: relative;
   margin-left: 10px;
 
-  @include mixins.media-tablet-xs {
-    display: none;
-    visibility: hidden;
-  }
-
   &__button {
     @include mixins.fluid-text(16, 14);
 
@@ -18,13 +13,16 @@
       column-gap: 6px;
       height: var(--height-xl);
       padding-inline: 12px;
-      color: var(--base-color-text);
-      background-color: var(--basic-midnight);
       border-radius: var(--border-radius-md);
+      color: var(--basic-gray);
+      background-color: var(--basic-midnight);
     }
 
     @include mixins.hover {
-      opacity: 0.7;
+      .auth__icon {
+        color: var(--basic-white);
+      }
+      color: var(--basic-white);
     }
 
     @include mixins.media-table-above {

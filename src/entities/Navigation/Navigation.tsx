@@ -11,7 +11,8 @@ interface INav {
 }
 
 interface INavigation {
-  className: string
+  className: string,
+  isVertical: boolean
 }
 
 const navigations: Array<INav> = [
@@ -44,19 +45,26 @@ const navigations: Array<INav> = [
 
 export const Navigation: FC<INavigation> = (props) => {
   const {
-    className
+    className,
+    isVertical = false
   } = props
 
+  const navigationListClasses =
+    isVertical ?
+      "navigation__list" :
+      "navigation__list-vertical"
+
+
   return (
-      <nav className={classNames(className, "navigation")}>
-        <ul className="navigation__list">
-          {
-            navigations.map(({id, title, href}) => (
-                <li className="navigation__item" key={id}>
-                  <Button className="navigation__link" href={href}>{title}</Button>
-                </li>
-            ))}
-        </ul>
-      </nav>
+    <nav className={classNames(className, "navigation")}>
+      <ul className={navigationListClasses}>
+        {
+          navigations.map(({id, title, href}) => (
+            <li className="navigation__item" key={id}>
+              <Button className="navigation__link" href={href}>{title}</Button>
+            </li>
+          ))}
+      </ul>
+    </nav>
   )
 }

@@ -1,0 +1,6 @@
+@use "@/shared/styles/mixins.scss";
+
+.button {
+  @include mixins.flex-center();
+  font-weight: 700;
+}

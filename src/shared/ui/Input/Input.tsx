@@ -25,14 +25,14 @@ export const Input: FC<IInput> = (props) => {
   } = props
 
   return (
-      <input
-          className={classNames(className, "input")}
-          type={type}
-          name={name}
-          value={value}
-          disabled={disabled}
-          onChange={onChange}
-          placeholder={placeholder}
-      />
+    <input
+      className={classNames(className, "input")}
+      type={type}
+      name={name}
+      value={value}
+      disabled={disabled}
+      onChange={onChange}
+      placeholder={placeholder}
+    />
   )
 }

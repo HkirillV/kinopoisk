@@ -19,11 +19,11 @@ export const SvgIcon: FC<ISvgIcon> = (props) => {
   } = props
 
   return (
-      <img
-          className={classNames(className, "svg-icon")}
-          src={src}
-          children={children}
-          alt={alt}
-      />
+    <img
+      className={classNames(className, "svg-icon")}
+      src={src}
+      children={children}
+      alt={alt}
+    />
   )
 }

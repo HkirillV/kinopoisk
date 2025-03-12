@@ -17,13 +17,13 @@ export const Logo: FC<ILogo> = (props) => {
   } = props
 
   return (
-      <Button className={classNames(className, "logo")} href={href}>
-        <img
-            src={logo}
-            width="66"
-            height="66"
-            loading="lazy"
-            alt="/"/>
-      </Button>
+    <Button className={classNames(className, "logo")} href={href}>
+      <img
+        src={logo}
+        width="66"
+        height="66"
+        loading="lazy"
+        alt="/"/>
+    </Button>
   )
 }

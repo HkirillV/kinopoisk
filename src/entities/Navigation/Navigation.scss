@@ -1,11 +1,15 @@
 @use "@/shared/styles/mixins.scss";
 
 .navigation {
-  margin-inline: 25px  auto;
 
   &__list {
     display: flex;
     column-gap: 16px;
+  }
+
+  &__list-vertical {
+    display: flex;
+    flex-direction: column;
   }
 
   &__link {

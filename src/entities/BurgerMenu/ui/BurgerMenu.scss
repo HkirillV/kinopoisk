@@ -1,1 +1,84 @@
 @use "@/shared/styles/mixins.scss";
+
+.button__burger-menu {
+  @include mixins.square(48px);
+  position: relative;
+  border-radius: var(--border-radius-sm);
+  color: var(--basic-gray);
+  background-color: transparent;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    border-radius: var(--border-radius-sm);
+    background-color: var(--basic-gray);
+    box-shadow: 0 -8px, 0 8px;
+  }
+
+  @include mixins.hover {
+    background-color: var(--basic-extra-light-rgba);
+  }
+}
+
+.mobile-overlay {
+  @include mixins.fluid-padding-block();
+  top: 0;
+  z-index: 11;
+  padding-inline: 15px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: none;
+  background-color: var(--base-color-background);
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+  }
+
+  &__navigation {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__close-button-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    height: 66px;
+  }
+}
+
+.cross-button {
+  @include mixins.square(48px);
+  position: relative;
+  border-radius: var(--border-radius-sm);
+  color: var(--basic-gray);
+  background-color: transparent;
+
+  @include mixins.hover {
+    background-color: var(--basic-extra-light-rgba);
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    border-radius: var(--border-radius-sm);
+    background-color: var(--basic-gray);
+  }
+
+  &::before {
+    rotate: 45deg;
+  }
+
+  &::after {
+    rotate: -45deg;
+  }
+}
