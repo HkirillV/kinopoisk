@@ -4,8 +4,14 @@
   position: relative;
   margin-left: 10px;
 
+  .auth__icon {
+    @include mixins.media-mobile-s {
+      @include mixins.square(20px);
+    }
+  }
+
   &__button {
-    @include mixins.fluid-text(16, 14);
+    @include mixins.fluid-text(16, 12);
 
     & {
       display: flex;
@@ -25,17 +31,9 @@
       color: var(--basic-white);
     }
 
-    @include mixins.media-table-above {
-      height: var(--height-xxl);
-      padding-inline: 8px;
+    @include mixins.media-mobile-s {
+     height: var(--height-xl);
     }
-  }
-
-  &__icon {
-    @include mixins.square(24px);
-
-    cursor: pointer;
-    color: var(--basic-gray)
   }
 
   .auth-form {
@@ -46,29 +44,40 @@
     flex-direction: column;
     justify-content: center;
     row-gap: 25px;
-    height: 450px;
+    height: 400px;
     padding-inline: 45px;
     border-radius: var(--border-radius-md);
     background-color: var(--basic-midnight);
 
+    @include mixins.media-mobile-s {
+      height: 300px;
+      padding-inline: 30px;
+    }
+
     &__title {
+      @include mixins.fluid-text(18, 14);
       text-align: center;
     }
 
-    &__icon {
-      @include mixins.square(24px);
-
-      position: absolute;
-      top: 12px;
-      left: 10px;
-      color: var(--basic-gray);
-    }
-
     &__label {
+      @include mixins.fluid-text(16, 12);
       position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
+    }
+
+    &__icon {
+      @include mixins.square(24px);
+      position: absolute;
+      top: 12px;
+      left: 10px;
+      color: var(--basic-gray);
+
+      @include mixins.media-mobile-s {
+        top: 13px;
+        @include mixins.square(20px);
+      }
     }
 
     &__input {
@@ -76,10 +85,15 @@
       padding-left: 48px;
       padding-right: 10px;
       border-radius: var(--border-radius-sm);
+
+      @include mixins.media-mobile-s {
+        padding-left: 38px;
+        padding-right: 6px;
+      }
     }
 
     &__button {
-      @include mixins.fluid-text(16, 14);
+      @include mixins.fluid-text(16, 12);
 
       & {
         height: var(--height-xl);

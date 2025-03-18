@@ -7,11 +7,6 @@
     column-gap: 16px;
   }
 
-  &__list-vertical {
-    display: flex;
-    flex-direction: column;
-  }
-
   &__link {
     @include mixins.reset-link;
     @include mixins.fluid-text(16, 14);

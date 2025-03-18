@@ -1,7 +1,9 @@
+@use "mixins.scss";
+
 @keyframes move-to-left {
   100% {
     opacity: 1;
-    width: 240px;
+    width: var(--animation-width);
     padding-left: 10px;
     transform: scaleX(1);
   }

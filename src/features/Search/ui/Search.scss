@@ -5,8 +5,16 @@
   @include mixins.flex-center(false);
   column-gap: 6px;
 
+  &__icon {
+    @include mixins.square(24px);
+
+    @include mixins.media-mobile-s {
+      @include mixins.square(20px);
+    }
+  }
+
   &__button {
-    @include mixins.fluid-text(16, 14);
+    @include mixins.fluid-text(16, 12);
 
     & {
       @include mixins.flex-center(false);
@@ -23,16 +31,12 @@
     }
   }
 
-  &__icon {
-    @include mixins.square(22px);
-  }
-
   &__input {
-    @include mixins.fluid-text(16, 14);
+    @include mixins.fluid-text(16, 12);
+    @include mixins.square(22px);
 
     & {
       height: var(--height-xl);
-      width: 22px;
       padding-inline: 10px;
       border-radius: var(--border-radius-md);
       background-color: var(--basic-gray);
@@ -47,6 +51,10 @@
 
     @include mixins.hover {
       background-color: var(--basic-white);
+    }
+
+    @include mixins.media-mobile-s {
+      height: var(--height-lg);
     }
   }
 }

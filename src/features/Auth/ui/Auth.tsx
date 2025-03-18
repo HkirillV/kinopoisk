@@ -1,5 +1,5 @@
-import { FC, ChangeEvent, useState } from "react"
-import classNames from "classnames"
+import { FC, ChangeEvent, useState } from "react";
+import classNames from "classnames";
 import { MdOutlineMailLock } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
 import PersonIcon from '@mui/icons-material/Person';

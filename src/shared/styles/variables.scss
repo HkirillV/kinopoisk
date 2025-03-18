@@ -1,6 +1,13 @@
 @use "mixins.scss";
 
 :root {
+  --animation-width: 240px;
+  @include mixins.media-mobile-s {
+    --animation-width: 150px;
+  }
+}
+
+:root {
   --base-font-family: "Inter", sans-serif;
   --base-font-weight: 400;
   --base-line-height: 1.5;
@@ -29,3 +36,4 @@
   --border-radius-sm: 6px;
   --border-radius-md: 16px;
 }
+

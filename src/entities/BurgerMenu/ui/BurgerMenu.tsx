@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { Button } from "@/shared/ui/Button";
-import { Navigation } from "@/entities/Navigation"
+import { Navigation } from "@/entities/Navigation";
 
-import "./BurgerMenu.scss"
+import "./BurgerMenu.scss";
 
 interface IBurgerMenu {
   isOpenBurgerMenu: boolean;
@@ -17,14 +17,16 @@ export const BurgerMenu: FC<IBurgerMenu> = (props) => {
 
   return (
     <dialog className="burger-menu mobile-overlay" open={isOpenBurgerMenu}>
-      <form className="mobile-overlay__close-button-wrapper">
-        <Button className="mobile-overlay__close-button cross-button" onClick={onBurgerMenuButtonClick}>
+      <form className="burger-menu__close-button-wrapper">
+        <Button
+          className="burger-menu__close-button cross-button"
+          onClick={onBurgerMenuButtonClick}>
           <span className="visually-hidden">Close burger-menu</span>
         </Button>
       </form>
-      <div className="mobile-overlay__body">
+      <div className="burger-menu__body">
         <Navigation
-          className="mobile-overlay__navigation"
+          className="burger-menu__navigation"
           isVertical={false}
         />
       </div>

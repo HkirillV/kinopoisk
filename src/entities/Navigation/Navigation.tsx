@@ -4,7 +4,7 @@ import classNames from "classnames";
 
 import "./Navigation.scss"
 
-interface INav {
+interface INavigationLink {
   id: number,
   title: string,
   href: string,
@@ -15,7 +15,7 @@ interface INavigation {
   isVertical: boolean
 }
 
-const navigations: Array<INav> = [
+const navigationsLink: Array<INavigationLink> = [
   {
     id: 1,
     title: "Главная",
@@ -46,22 +46,25 @@ const navigations: Array<INav> = [
 export const Navigation: FC<INavigation> = (props) => {
   const {
     className,
-    isVertical = false
+    isVertical
   } = props
 
   const navigationListClasses =
     isVertical ?
       "navigation__list" :
-      "navigation__list-vertical"
-
+      "burger-menu__list-vertical"
 
   return (
     <nav className={classNames(className, "navigation")}>
       <ul className={navigationListClasses}>
         {
-          navigations.map(({id, title, href}) => (
+          navigationsLink.map(({id, title, href}) => (
             <li className="navigation__item" key={id}>
-              <Button className="navigation__link" href={href}>{title}</Button>
+              <Button
+                className="navigation__link"
+                href={href}>
+                {title}
+              </Button>
             </li>
           ))}
       </ul>

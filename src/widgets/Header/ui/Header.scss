@@ -5,14 +5,23 @@
   display: flex;
   align-items: center;
 
+  @include mixins.media-mobile-xs {
+    justify-content: end;
+  }
+
   &__logo {
     @include mixins.media-tablet-xs {
       margin-right: auto;
     }
+
+    @include mixins.media-mobile-xs {
+      display: none;
+      visibility: hidden;
+    }
   }
 
   &__navigation {
-    margin-inline: 25px  auto;
+    margin-inline: 25px auto;
 
     @include mixins.media-tablet-xs {
       display: none;

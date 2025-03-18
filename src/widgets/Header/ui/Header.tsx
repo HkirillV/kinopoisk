@@ -24,7 +24,7 @@ export const Header = () => {
     <header className="header">
       <h1 className="visually-hidden">Кинопоиск</h1>
       <Logo className="header__logo" href="/"/>
-      <Navigation className="header__navigation"/>
+      <Navigation className="header__navigation" isVertical={true}/>
       <Search
         className="header__search"
         name="search"
