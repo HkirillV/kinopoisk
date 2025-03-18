@@ -33,16 +33,21 @@
 
   &__input {
     @include mixins.fluid-text(16, 12);
-    @include mixins.square(22px);
 
     & {
+      @include mixins.square(22px);
       height: var(--height-xl);
       padding-inline: 10px;
       border-radius: var(--border-radius-md);
+      border: 3px solid transparent;
       background-color: var(--basic-gray);
       opacity: 0;
       transform: scaleX(0);
       transform-origin: left center;
+    }
+
+    &::placeholder {
+      color: var(--basic-black);
     }
 
     &:focus {
@@ -54,7 +59,7 @@
     }
 
     @include mixins.media-mobile-s {
-      height: var(--height-lg);
+
     }
   }
 }

@@ -51,8 +51,8 @@ export const Navigation: FC<INavigation> = (props) => {
 
   const navigationListClasses =
     isVertical ?
-      "navigation__list" :
-      "burger-menu__list-vertical"
+      "navigation__list-vertical" :
+      "navigation__list"
 
   return (
     <nav className={classNames(className, "navigation")}>

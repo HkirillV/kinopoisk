@@ -13,11 +13,6 @@
     @include mixins.media-tablet-xs {
       margin-right: auto;
     }
-
-    @include mixins.media-mobile-xs {
-      display: none;
-      visibility: hidden;
-    }
   }
 
   &__navigation {
@@ -30,6 +25,9 @@
   }
 
   &__auth {
-    margin-right: 15px;
+    @include mixins.media-mobile-s {
+      display: none;
+      visibility: hidden;
+    }
   }
 }

@@ -1,9 +1,13 @@
 @use "mixins.scss";
 
 :root {
-  --animation-width: 240px;
+  --animation-width: 270px;
   @include mixins.media-mobile-s {
-    --animation-width: 150px;
+    --animation-width: 270px;
+  }
+
+  @include mixins.media-mobile-xs {
+    --animation-width: 170px;
   }
 }
 

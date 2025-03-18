@@ -16,7 +16,8 @@ export const BurgerMenu: FC<IBurgerMenu> = (props) => {
   } = props
 
   return (
-    <dialog className="burger-menu mobile-overlay" open={isOpenBurgerMenu}>
+    <dialog className="burger-menu" open={isOpenBurgerMenu}>
+      <div className="burger-menu__overlay" onClick={onBurgerMenuButtonClick}/>
       <form className="burger-menu__close-button-wrapper">
         <Button
           className="burger-menu__close-button cross-button"
@@ -27,7 +28,7 @@ export const BurgerMenu: FC<IBurgerMenu> = (props) => {
       <div className="burger-menu__body">
         <Navigation
           className="burger-menu__navigation"
-          isVertical={false}
+          isVertical={true}
         />
       </div>
     </dialog>
