@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Logo } from "@/shared/ui/Logo";
-import { Navigation } from "@/entities/Navigation";
+import { Navigation } from "@/entities/Navigation/ui";
 import { Search } from "@/features/Search/ui";
 import { Auth } from "@/features/Auth/ui";
 import { Button } from "@/shared/ui/Button"
