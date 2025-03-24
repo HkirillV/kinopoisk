@@ -1,76 +1,74 @@
 @use "@/shared/styles/mixins.scss";
 
 .burger-menu {
-  @include mixins.fluid-padding-block();
   position: fixed;
   top: 0;
   right: 0;
-  display: flex;
-  flex-direction: column;
-  padding-inline: 15px;
-  width: 100vw;
-  height: 100vh;
-  background-color: var(--base-color-background);
-  transform: translateX(100%);
+  width: 100%;
+  height: 100%;
+  transform: translateX(150%);
   transition: transform 0.3s ease-out;
 
-  &__overlay {
-    position: absolute;
-    top: 0;
-    right: 30%;
-    width: 100%;
-    height: 100vh;
-    pointer-events: auto;
+  &.is-active {
+    transform: translateX(0);
   }
 
-  &.is-active-burger-menu {
+  &__blur {
+    position: absolute;
+    top: 0;
+    right: 50%;
+    width: 100%;
+    height: 100%;
     backdrop-filter: blur(2px);
   }
 
   &__body {
+    @include mixins.fluid-padding-block();
     display: flex;
     flex-direction: column;
-    align-items: end;
-    row-gap: 20px;
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  &__close-button-wrapper {
-    display: flex;
     align-items: center;
-    justify-content: end;
-    height: 66px;
-  }
-}
-
-.cross-button {
-  @include mixins.square(48px);
-  position: relative;
-  border-radius: var(--border-radius-sm);
-  color: var(--basic-gray);
-  background-color: transparent;
-
-  @include mixins.hover {
-    background-color: var(--basic-extra-light-rgba);
-  }
-
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
+    row-gap: 20px;
+    padding-inline: 15px;
     width: 50%;
-    height: 2px;
+    height: 100%;
+    margin-left: auto;
+    background-color: var(--basic-dark-slate-grey);
+  }
+
+  &__wrapper-button {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+  }
+
+  &__close-button {
+    @include mixins.square(48px);
+    position: relative;
     border-radius: var(--border-radius-sm);
-    background-color: var(--basic-gray);
-  }
+    color: var(--basic-gray);
+    background-color: transparent;
 
-  &::before {
-    rotate: 45deg;
-  }
+    @include mixins.hover {
+      background-color: var(--basic-extra-light-rgba);
+    }
 
-  &::after {
-    rotate: -45deg;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 50%;
+      height: 2px;
+      border-radius: var(--border-radius-sm);
+      background-color: var(--basic-gray);
+    }
+
+    &::before {
+      rotate: 45deg;
+    }
+
+    &::after {
+      rotate: -45deg;
+    }
   }
 }
 

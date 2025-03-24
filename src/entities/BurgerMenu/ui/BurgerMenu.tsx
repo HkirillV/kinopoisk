@@ -17,16 +17,16 @@ export const BurgerMenu: FC<IBurgerMenu> = (props) => {
   } = props
 
   return (
-    <div className={classNames("burger-menu", isOpenBurgerMenu ? "is-active-burger-menu" : "")}>
-      <div className="burger-menu__overlay" onClick={onBurgerMenuButtonClick}/>
-      <form className="burger-menu__close-button-wrapper">
-        <Button
-          className="burger-menu__close-button cross-button"
-          onClick={onBurgerMenuButtonClick}>
-          <span className="visually-hidden">Close burger-menu</span>
-        </Button>
-      </form>
+    <div className={classNames("burger-menu", isOpenBurgerMenu ? "is-active" : "")}>
+      <div className="burger-menu__blur" onClick={onBurgerMenuButtonClick}/>
       <div className="burger-menu__body">
+        <div className="burger-menu__wrapper-button">
+          <Button
+            className="burger-menu__close-button"
+            onClick={onBurgerMenuButtonClick}>
+            <span className="visually-hidden">Close burger-menu</span>
+          </Button>
+        </div>
         <Navigation
           className="burger-menu__navigation"
           isVertical={true}

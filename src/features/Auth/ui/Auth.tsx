@@ -1,7 +1,8 @@
-import { FC, ChangeEvent, useState } from "react";
+import { FC, ChangeEvent, useState, useRef } from "react";
 import classNames from "classnames";
 import { MdOutlineMailLock } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
+import { useOutsideClick } from "@/shared/hooks/useOutsideClick";
 import PersonIcon from '@mui/icons-material/Person';
 import { Input } from "@/shared/ui/Input";
 import { Button } from "@/shared/ui/Button";
@@ -23,6 +24,9 @@ export const Auth: FC<IAuth> = (props) => {
 
   const [login, setLogin] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const authRef = useRef(null)
+
+  useOutsideClick(authRef, onClick, isOpenAuth)
 
   const onChangeLogin = (e: ChangeEvent<HTMLInputElement>) => {
     setLogin(e.target.value)
@@ -33,7 +37,7 @@ export const Auth: FC<IAuth> = (props) => {
   }
 
   return (
-    <div className={classNames(className, "auth")}>
+    <div className={classNames(className, "auth")} ref={authRef}>
       <Button className="auth__button" onClick={onClick}>
         <PersonIcon className="auth__icon"/>
         Войти

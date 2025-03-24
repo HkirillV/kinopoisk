@@ -10,6 +10,7 @@
   }
 
   &__logo {
+    height: var(--height-xxl);
     @include mixins.media-tablet-xs {
       margin-right: auto;
     }
