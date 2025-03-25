@@ -1,4 +1,5 @@
-import { FC, useState, ChangeEvent } from "react";
+import { FC, useRef, ChangeEvent } from "react";
+import { useOutsideClick } from "@/shared/hooks/useOutsideClick";
 import { RiSearchLine } from "react-icons/ri";
 import classNames from "classnames";
 import { Input } from "@/shared/ui/Input";
@@ -12,6 +13,10 @@ interface ISearch {
   type: string;
   disabled?: boolean;
   placeholder?: string;
+  isOpenSearch: boolean;
+  onSearchButtonClick: () => void;
+  searchValue: string;
+  setSearchValue: (searchValue:string) => void
 }
 
 export const Search: FC<ISearch> = (props) => {
@@ -19,47 +24,42 @@ export const Search: FC<ISearch> = (props) => {
     className,
     name,
     type,
-    placeholder
+    placeholder,
+    isOpenSearch,
+    searchValue,
+    setSearchValue,
+    onSearchButtonClick
   } = props
 
-  const [isOpen, setIsOpen] = useState<boolean>(false)
-  const [search, setSearch] = useState<string>("")
+  const searchRef = useRef(null)
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value)
+    setSearchValue(e.target.value)
   }
 
-  const onSearchIconClick = () => {
-    setIsOpen(prevState => {
-      const newState: boolean = !prevState
-      if (newState) {
-        setSearch("")
-      }
-      return newState
-    })
-  }
+  useOutsideClick(searchRef, onSearchButtonClick, isOpenSearch)
 
   return (
-      <form className={classNames(className, "search")}>
-        <Button className="search__button" onClick={onSearchIconClick}>
-          <RiSearchLine className="search__icon"/>
-          {
-              !isOpen && (
-                  <span className="search__title">Поиск</span>
-              )
-          }
-        </Button>
-        <label className="search__label">
-          <Input
-              className={classNames("search__input", isOpen ? "is-active-search" : "")}
-              type={type}
-              name={name}
-              value={search}
-              disabled={!isOpen}
-              onChange={onChange}
-              placeholder={placeholder}
-          />
-        </label>
-      </form>
+    <form className={classNames(className, "search")} ref={searchRef}>
+      <Button className="search__button" onClick={onSearchButtonClick}>
+        <RiSearchLine className="search__icon"/>
+        {
+          !isOpenSearch && (
+            <span className="search__title">Поиск</span>
+          )
+        }
+      </Button>
+      <label className="search__label">
+        <Input
+          className={classNames("search__input", isOpenSearch ? "is-active-search" : "")}
+          type={type}
+          name={name}
+          value={searchValue}
+          disabled={!isOpenSearch}
+          onChange={onChange}
+          placeholder={placeholder}
+        />
+      </label>
+    </form>
   )
 }

@@ -10,7 +10,19 @@ import "./Header.scss"
 
 export const Header = () => {
   const [isOpenAuth, setIsOpenAuth] = useState<boolean>(false);
+  const [isOpenSearch, setIsOpenSearch] = useState<boolean>(false)
+  const [searchValue, setSearchValue] = useState<string>("")
   const [isOpenBurgerMenu, setIsOpenBurgerMenu] = useState<boolean>(false);
+
+  const onSearchButtonClick = () => {
+    setIsOpenSearch((prevState: boolean) => {
+      const newState: boolean = !prevState;
+      if (newState) {
+        setSearchValue("");
+      }
+      return newState;
+    });
+  };
 
   const onAuthButtonClick = () => {
     setIsOpenAuth(prevState => !prevState);
@@ -30,11 +42,15 @@ export const Header = () => {
         name="search"
         type="search"
         placeholder="Поиск"
+        isOpenSearch={isOpenSearch}
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+        onSearchButtonClick={onSearchButtonClick}
       />
       <Auth
         className="header__auth"
         isOpenAuth={isOpenAuth}
-        onClick={onAuthButtonClick}
+        onAuthButtonClick={onAuthButtonClick}
       />
       <Button className="button__burger-menu visible-mobile" onClick={onBurgerMenuButtonClick}>
         <span className="visually-hidden">Open navigation menu</span>

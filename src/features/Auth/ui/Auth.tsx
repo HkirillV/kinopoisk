@@ -12,21 +12,21 @@ import "./Auth.scss";
 interface IAuth {
   className: string,
   isOpenAuth: boolean
-  onClick: () => void,
+  onAuthButtonClick: () => void,
 }
 
 export const Auth: FC<IAuth> = (props) => {
   const {
     className,
     isOpenAuth,
-    onClick
+    onAuthButtonClick
   } = props
 
   const [login, setLogin] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const authRef = useRef(null)
 
-  useOutsideClick(authRef, onClick, isOpenAuth)
+  useOutsideClick(authRef, onAuthButtonClick, isOpenAuth)
 
   const onChangeLogin = (e: ChangeEvent<HTMLInputElement>) => {
     setLogin(e.target.value)
@@ -38,7 +38,7 @@ export const Auth: FC<IAuth> = (props) => {
 
   return (
     <div className={classNames(className, "auth")} ref={authRef}>
-      <Button className="auth__button" onClick={onClick}>
+      <Button className="auth__button" onClick={onAuthButtonClick}>
         <PersonIcon className="auth__icon"/>
         Войти
       </Button>

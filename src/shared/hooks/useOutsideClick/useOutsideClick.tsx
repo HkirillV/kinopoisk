@@ -1,19 +1,26 @@
-import { FC } from "react";
+import { RefObject, useEffect } from "react";
 
-interface IUseOutsideClick {
-  authRef: boolean;
-  onClick: () => void;
-  isOpenAuth: boolean;
-}
+export const useOutsideClick = (
+  elementRef: RefObject<HTMLElement | null>,
+  handler: () => void,
+  attached: boolean = true
+) => {
 
-export const useOutsideClick: FC<IUseOutsideClick> = (props) => {
-  const {
-    authRef,
-    onClick,
-    isOpenAuth
-  } = props
+  useEffect(() => {
+    if (!attached) return
 
-  if(!authRef) {
-    onClick()
-  }
+    const onClick = (e: MouseEvent) => {
+      if (!elementRef.current) return;
+      if (e.target instanceof Node && !elementRef.current.contains(e.target)) {
+        handler();
+      }
+    }
+
+    document.addEventListener("mousedown", onClick);
+
+    return () => {
+      document.removeEventListener("mousedown", onClick);
+    }
+
+  }, [elementRef, handler, attached]);
 }
