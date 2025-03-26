@@ -16,7 +16,7 @@ interface ISearch {
   isOpenSearch: boolean;
   onSearchButtonClick: () => void;
   searchValue: string;
-  setSearchValue: (searchValue:string) => void
+  setSearchValue: (searchValue: string) => void
 }
 
 export const Search: FC<ISearch> = (props) => {

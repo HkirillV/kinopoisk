@@ -1,8 +1,8 @@
-import React, { FC } from "react"
-import { Link } from "react-router-dom"
-import classNames from "classnames"
+import React, { FC } from "react";
+import { Link } from "react-router-dom";
+import classNames from "classnames";
 
-import "./Button.scss"
+import "./Button.scss";
 
 interface IButton {
   readonly children: React.ReactNode,

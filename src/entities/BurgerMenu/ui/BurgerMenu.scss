@@ -37,8 +37,12 @@
 
   &__wrapper-button {
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     width: 100%;
+  }
+
+  &__auth {
+    background-color: transparent;
   }
 
   &__close-button {

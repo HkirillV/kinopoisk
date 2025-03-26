@@ -1,9 +1,10 @@
-import { FC } from "react";
+import { FC, useState } from "react";
+import classNames from "classnames";
 import { Button } from "@/shared/ui/Button";
 import { Navigation } from "@/entities/Navigation/ui";
+import { Auth } from "@/features/Auth/ui"
 
 import "./BurgerMenu.scss";
-import classNames from "classnames";
 
 interface IBurgerMenu {
   isOpenBurgerMenu: boolean;
@@ -16,11 +17,22 @@ export const BurgerMenu: FC<IBurgerMenu> = (props) => {
     onBurgerMenuButtonClick
   } = props
 
+  const [isOpenAuth, setIsOpenAuth] = useState<boolean>(false)
+
+  const onAuthButtonClick = () => {
+    setIsOpenAuth(prevState => !prevState);
+  }
+
   return (
     <div className={classNames("burger-menu", isOpenBurgerMenu ? "is-active" : "")}>
       <div className="burger-menu__blur" onClick={onBurgerMenuButtonClick}/>
       <div className="burger-menu__body">
         <div className="burger-menu__wrapper-button">
+          <Auth
+            className="burger-menu__auth"
+            isOpenAuth={isOpenAuth}
+            onAuthButtonClick={onAuthButtonClick}
+          />
           <Button
             className="burger-menu__close-button"
             onClick={onBurgerMenuButtonClick}>

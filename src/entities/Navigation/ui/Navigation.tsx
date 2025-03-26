@@ -12,41 +12,41 @@ interface INavigationLink {
 
 interface INavigation {
   className: string,
-  isVertical: boolean
+  isVertical: boolean,
 }
 
 const navigationsLink: Array<INavigationLink> = [
   {
     id: 1,
     title: "Главная",
-    href: "/"
+    href: "/",
   },
   {
     id: 2,
     title: "Фильмы",
-    href: "/"
+    href: "/",
   },
   {
     id: 3,
     title: "Сериалы",
-    href: "/"
+    href: "/",
   },
   {
     id: 4,
     title: "Мультфильмы",
-    href: "/"
+    href: "/",
   },
   {
     id: 5,
     title: "ТВ",
-    href: "/"
+    href: "/",
   }
 ]
 
 export const Navigation: FC<INavigation> = (props) => {
   const {
     className,
-    isVertical
+    isVertical,
   } = props
 
   const navigationListClasses =
@@ -55,14 +55,15 @@ export const Navigation: FC<INavigation> = (props) => {
       "navigation__list"
 
   return (
-    <nav className={classNames(className, "navigation")}>
+    <nav className={classNames("navigation", className)}>
       <ul className={navigationListClasses}>
         {
           navigationsLink.map(({id, title, href}) => (
             <li className="navigation__item" key={id}>
               <Button
                 className="navigation__link"
-                href={href}>
+                href={href}
+              >
                 {title}
               </Button>
             </li>

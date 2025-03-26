@@ -14,7 +14,7 @@
   }
 
   &__button {
-    @include mixins.fluid-text(16, 12);
+    @include mixins.fluid-text(16, 14);
 
     & {
       @include mixins.flex-center(false);
@@ -32,7 +32,7 @@
   }
 
   &__input {
-    @include mixins.fluid-text(16, 12);
+    @include mixins.fluid-text(16, 14);
 
     & {
       @include mixins.square(22px);

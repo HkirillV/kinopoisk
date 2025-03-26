@@ -37,8 +37,8 @@ export const Auth: FC<IAuth> = (props) => {
   }
 
   return (
-    <div className={classNames(className, "auth")} ref={authRef}>
-      <Button className="auth__button" onClick={onAuthButtonClick}>
+    <div className="auth" ref={authRef}>
+      <Button className={classNames("auth__button", className)} onClick={onAuthButtonClick}>
         <PersonIcon className="auth__icon"/>
         Войти
       </Button>

@@ -11,7 +11,7 @@
   }
 
   &__button {
-    @include mixins.fluid-text(16, 12);
+    @include mixins.fluid-text(16, 14);
 
     & {
       display: flex;
@@ -53,11 +53,6 @@
       height: 350px;
     }
 
-    //@include mixins.media-mobile-s {
-    //  height: 300px;
-    //  padding-inline: 30px;
-    //}
-
     &__title {
       @include mixins.fluid-text(18, 14);
 
@@ -67,7 +62,7 @@
     }
 
     &__label {
-      @include mixins.fluid-text(16, 12);
+      @include mixins.fluid-text(16, 14);
 
       & {
         position: relative;
@@ -84,8 +79,8 @@
       color: var(--basic-gray);
 
       @include mixins.media-mobile-s {
-        top: 13px;
         @include mixins.square(20px);
+        top: 13px;
       }
     }
 
@@ -102,7 +97,7 @@
     }
 
     &__button {
-      @include mixins.fluid-text(16, 12);
+      @include mixins.fluid-text(16, 14);
 
       & {
         height: var(--height-xl);
