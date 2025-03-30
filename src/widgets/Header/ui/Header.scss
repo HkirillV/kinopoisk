@@ -3,6 +3,7 @@
 .header {
   @include mixins.fluid-padding-block();
   display: flex;
+  align-items: center;
 
   @include mixins.media-mobile-xs {
     justify-content: end;

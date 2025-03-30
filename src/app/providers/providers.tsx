@@ -1,6 +1,6 @@
 import { FC, JSX } from "react";
 import { Provider } from "react-redux";
-import store from "@/app/store";
+import { store } from "@/app/store";
 
 interface IProviders {
   readonly children: JSX.Element;
@@ -8,8 +8,8 @@ interface IProviders {
 
 export const Providers: FC<IProviders> = ({children}) => {
   return (
-      <Provider store={store}>
-        {children}
-      </Provider>
+    <Provider store={store}>
+      {children}
+    </Provider>
   )
 }
