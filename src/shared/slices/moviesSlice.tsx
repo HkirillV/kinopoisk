@@ -1,26 +1,28 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type Movie = {
   id: number;
-  title: string;
+  name: string;
 }
 
 type MoviesState = {
-  movies: Movie[];
+  list: Movie[];
 }
 
-const initialState: MoviesState  = []
+const initialState: MoviesState  = {
+  list: [],
+}
 
-const moviesSlices = createSlice({
+const moviesSlice = createSlice({
   name: "movies",
   initialState,
   reducers: {
-    addMovies: (state, action) => {
-      state.push(action.payload);
+    addMovies: (state, action: PayloadAction<Movie[]>) => {
+      state.list = action.payload;
     }
   }
 })
 
-export const {addMovies} = moviesSlices.actions;
+export const {addMovies} = moviesSlice.actions;
 
-export default moviesSlices.reducer;
+export default moviesSlice.reducer;

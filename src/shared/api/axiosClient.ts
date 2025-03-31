@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiKey: string = "CSP912J-TDJM08G-PCEBX83-TSDT2Z9"
+const API_KEY: string = "CSP912J-TDJM08G-PCEBX83-TSDT2Z9"
 
 const baseURL =
   import.meta.env.DEV ?
@@ -10,7 +10,7 @@ const baseURL =
 const axiosClient = axios.create({
   baseURL,
   headers: {
-    "X-API-KEY": apiKey,
+    "X-API-KEY": API_KEY,
   }
 })
 
