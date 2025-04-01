@@ -1,14 +1,23 @@
-import { useState } from "react";
+import { useState, FC } from "react";
+import classNames from 'classnames';
 import { Logo } from "@/shared/ui/Logo";
 import { Navigation } from "@/entities/Navigation/ui";
 import { Search } from "@/features/Search/ui";
 import { Auth } from "@/features/Auth/ui";
-import { Button } from "@/shared/ui/Button"
+import { Button } from "@/shared/ui/Button";
 import { BurgerMenu } from "@/entities/BurgerMenu/ui";
 
-import "./Header.scss"
+interface IHeader {
+  className?: string;
+}
 
-export const Header = () => {
+import "./Header.scss";
+
+export const Header: FC<IHeader> = (props) => {
+  const {
+    className
+  } = props
+
   const [isOpenAuth, setIsOpenAuth] = useState<boolean>(false);
   const [isOpenSearch, setIsOpenSearch] = useState<boolean>(false)
   const [searchValue, setSearchValue] = useState<string>("")
@@ -33,7 +42,7 @@ export const Header = () => {
   }
 
   return (
-    <header className="header">
+    <header className={classNames(className, "header")}>
       <h1 className="visually-hidden">Кинопоиск</h1>
       <Logo className="header__logo" href="/"/>
       <Navigation className="header__navigation" isVertical={false}/>

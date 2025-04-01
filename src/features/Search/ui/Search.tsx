@@ -1,5 +1,5 @@
 import { FC, useRef, ChangeEvent } from "react";
-import { useOutsideClick } from "@/shared/hooks/useOutsideClick";
+import { useOutsideClick } from "@/shared/lib/hooks/useOutsideClick";
 import { RiSearchLine } from "react-icons/ri";
 import classNames from "classnames";
 import { Input } from "@/shared/ui/Input";

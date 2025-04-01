@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const API_KEY: string = "CSP912J-TDJM08G-PCEBX83-TSDT2Z9"
+const API_KEY: string = "08ffbc0d-461a-4ed9-b1a7-b730057ff2f6"
 
 const baseURL =
   import.meta.env.DEV ?
-    "https://api.kinopoisk.dev/v1.4/" :
+    "https://kinopoiskapiunofficial.tech/api/v2.2" :
     "";
 
 const axiosClient = axios.create({

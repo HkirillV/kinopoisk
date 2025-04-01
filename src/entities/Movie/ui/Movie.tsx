@@ -1,33 +1,41 @@
-import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "@/shared/hooks/useStore/useStore";
-import { kinopoiskAPI } from "@/shared/api/kinopoiskAPI";
-import { addMovies } from "@/shared/slices/moviesSlice";
+import { FC } from "react";
+import classNames from "classnames";
+import { SvgIcon } from "@/shared/ui/SvgIcon";
+import { List } from "@/shared/ui/List";
 
-import "./Movie.scss"
+import "./Movie.scss";
 
-export const Movie = () => {
+interface IGenre {
+  genre: string;
+}
 
-  const dispatch = useAppDispatch();
-  const movies = useAppSelector(state => state.movies.list);
-  console.log(movies);
-  useEffect(() => {
-    kinopoiskAPI.getMovies()
-      .then(res => {
-        dispatch(addMovies(res));
-      })
-  }, [dispatch]);
+interface IMovie {
+  kinopoiskId: number;
+  nameRu: string;
+  posterUrl: string;
+  ratingKinopoisk: number;
+  genres: IGenre[]
+}
+
+interface IMovieProps {
+  className: string,
+  movies: IMovie[]
+}
+
+export const Movie: FC<IMovieProps> = (props) => {
+  const {
+    className,
+    movies
+  } = props
 
   return (
-    <div className="movie">
-      <ul className="movie__list">
-        {/*{*/}
-        {/*  movies.map((movie) => (*/}
-        {/*    <li className="movie__item" key={movie.id}>*/}
-        {/*      {movie.name}*/}
-        {/*    </li>*/}
-        {/*  ))*/}
-        {/*}*/}
-      </ul>
+    <div className={classNames(className, "movie")}>
+      <List className="movie__list">
+        {
+          movies.map((movie) => (
+
+        ))}
+      </List>
     </div>
   )
 }

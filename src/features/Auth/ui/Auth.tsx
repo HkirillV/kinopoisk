@@ -2,7 +2,7 @@ import { FC, ChangeEvent, useState, useRef } from "react";
 import classNames from "classnames";
 import { MdOutlineMailLock } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
-import { useOutsideClick } from "@/shared/hooks/useOutsideClick";
+import { useOutsideClick } from "@/shared/lib/hooks/useOutsideClick";
 import PersonIcon from '@mui/icons-material/Person';
 import { Input } from "@/shared/ui/Input";
 import { Button } from "@/shared/ui/Button";

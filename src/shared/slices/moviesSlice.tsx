@@ -1,15 +1,22 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-type Movie = {
-  id: number;
-  name: string;
+interface IGenre {
+  genre: string;
 }
 
-type MoviesState = {
-  list: Movie[];
+interface IMovie {
+  kinopoiskId: number;
+  nameRu: string;
+  posterUrl: string;
+  ratingKinopoisk: number;
+  genres: IGenre[]
 }
 
-const initialState: MoviesState  = {
+interface MoviesState {
+  list: IMovie[];
+}
+
+const initialState: MoviesState = {
   list: [],
 }
 
@@ -17,7 +24,7 @@ const moviesSlice = createSlice({
   name: "movies",
   initialState,
   reducers: {
-    addMovies: (state, action: PayloadAction<Movie[]>) => {
+    addMovies: (state, action: PayloadAction<IMovie[]>) => {
       state.list = action.payload;
     }
   }

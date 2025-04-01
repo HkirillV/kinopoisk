@@ -1,20 +1,24 @@
-import { FC, ReactNode } from "react"
+import { FC } from "react"
 import classNames from "classnames"
 
 import "./SvgIcon.scss"
 
 interface ISvgIcon {
   className: string,
-  children: ReactNode,
   src: string,
+  width: string,
+  height: string,
+  loading: "eager" | "lazy" | undefined,
   alt: string,
 }
 
 export const SvgIcon: FC<ISvgIcon> = (props) => {
   const {
     className,
-    children,
     src,
+    width,
+    height,
+    loading,
     alt
   } = props
 
@@ -22,7 +26,9 @@ export const SvgIcon: FC<ISvgIcon> = (props) => {
     <img
       className={classNames(className, "svg-icon")}
       src={src}
-      children={children}
+      width={width}
+      height={height}
+      loading={loading}
       alt={alt}
     />
   )
