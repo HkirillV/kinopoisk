@@ -1,41 +1,51 @@
-import { FC } from "react";
-import classNames from "classnames";
-import { SvgIcon } from "@/shared/ui/SvgIcon";
-import { List } from "@/shared/ui/List";
+import { useEffect } from "react";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
+import { useAppSelector } from "@/shared/lib/hooks/useAppSelector";
+import { kinopoiskAPI } from "@/shared/api/kinopoiskAPI";
+import { addMovies } from "@/shared/slices/moviesSlice";
+import { Icon } from "@/shared/ui/Icon";
+import { Genre } from "@/entities/Genre/ui";
 
 import "./Movie.scss";
 
-interface IGenre {
-  genre: string;
-}
+export const Movie = () => {
+  const dispatch = useAppDispatch();
+  const movies = useAppSelector(state => state.movies.list);
 
-interface IMovie {
-  kinopoiskId: number;
-  nameRu: string;
-  posterUrl: string;
-  ratingKinopoisk: number;
-  genres: IGenre[]
-}
-
-interface IMovieProps {
-  className: string,
-  movies: IMovie[]
-}
-
-export const Movie: FC<IMovieProps> = (props) => {
-  const {
-    className,
-    movies
-  } = props
+  useEffect(() => {
+    kinopoiskAPI.getMovies()
+      .then(res => {
+        dispatch(addMovies(res));
+      })
+  }, [dispatch]);
 
   return (
-    <div className={classNames(className, "movie")}>
-      <List className="movie__list">
+    <div className="movie">
+      <ul className="movie__list">
         {
-          movies.map((movie) => (
-
-        ))}
-      </List>
+          movies.length > 0 && (
+            movies.map(({kinopoiskId, nameRu, posterUrl, ratingKinopoisk, genres}) => (
+              <li className="movie__item" key={kinopoiskId}>
+                <Icon
+                  className="movie__image"
+                  src={posterUrl}
+                  width="200"
+                  height="200"
+                  loading="lazy"
+                  alt="/"
+                />
+                <h4 className="movie__title">{nameRu}</h4>
+                <Genre className="movie__genre">
+                  {genres}
+                </Genre>
+                <div className="movie__rating">
+                  {ratingKinopoisk}
+                </div>
+              </li>
+            ))
+          )
+        }
+      </ul>
     </div>
   )
 }

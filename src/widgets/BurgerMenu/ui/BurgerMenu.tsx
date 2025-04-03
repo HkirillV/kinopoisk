@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 import classNames from "classnames";
 import { Button } from "@/shared/ui/Button";
 import { Navigation } from "@/entities/Navigation/ui";
-import { Auth } from "@/features/Auth/ui"
+import { Auth } from "@/features/Auth/ui";
 
 import "./BurgerMenu.scss";
 

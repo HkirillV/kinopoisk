@@ -1,0 +1,33 @@
+@use "@/shared/styles/mixins.scss";
+
+.movie {
+  margin-top: 40px;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 25px 10px;
+  }
+
+  &__item {
+    position: relative;
+    max-width: 200px;
+  }
+
+  &__title {
+    margin-top: 10px;
+  }
+
+  &__genre {
+    @include mixins.fluid-text(12, 12);
+    color: var(--basic-gold);
+    max-width: 200px;
+  }
+
+  &__rating {
+    position: absolute;
+    top: 0;
+    z-index: 10;
+  }
+}

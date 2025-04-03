@@ -1,11 +1,11 @@
-import { Providers } from "@/app/providers";
-import { AppRouter } from '@/app/router';
+import Providers from "@/app/providers/providers";
+import AppRouter from '@/app/router/appRouter';
 
 function App() {
   return (
-      <Providers>
-        <AppRouter/>
-      </Providers>
+    <Providers>
+      <AppRouter/>
+    </Providers>
   )
 }
 

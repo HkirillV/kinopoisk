@@ -1,20 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-interface IGenre {
-  genre: string;
-}
-
-interface IMovie {
-  kinopoiskId: number;
-  nameRu: string;
-  posterUrl: string;
-  ratingKinopoisk: number;
-  genres: IGenre[]
-}
-
-interface MoviesState {
-  list: IMovie[];
-}
+import { MoviesState, IMovie } from "@/shared/types/movieTypes";
 
 const initialState: MoviesState = {
   list: [],

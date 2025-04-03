@@ -1,9 +1,9 @@
-import { FC } from "react"
-import classNames from "classnames"
+import { FC } from "react";
+import classNames from "classnames";
 
-import "./SvgIcon.scss"
+import "./Icon.scss";
 
-interface ISvgIcon {
+interface IIcon {
   className: string,
   src: string,
   width: string,
@@ -12,7 +12,7 @@ interface ISvgIcon {
   alt: string,
 }
 
-export const SvgIcon: FC<ISvgIcon> = (props) => {
+export const Icon: FC<IIcon> = (props) => {
   const {
     className,
     src,
@@ -24,7 +24,7 @@ export const SvgIcon: FC<ISvgIcon> = (props) => {
 
   return (
     <img
-      className={classNames(className, "svg-icon")}
+      className={classNames(className, "icon")}
       src={src}
       width={width}
       height={height}

@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router";
-import { Container } from '@/app/Container';
-import { Home } from "@/pages/Home"
+import { Container } from "@/shared/ui/Container";
+import { Home } from "@/pages/Home";
 
-export const AppRouter = () => {
+const AppRouter = () => {
   return (
       <BrowserRouter>
         <Container>
@@ -14,3 +14,5 @@ export const AppRouter = () => {
       </BrowserRouter>
   )
 }
+
+export default AppRouter;
