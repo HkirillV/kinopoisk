@@ -2,6 +2,7 @@
 
 .auth {
   position: relative;
+  z-index: 10;
   margin-inline: 10px;
 
   .auth__icon {
@@ -32,7 +33,7 @@
     }
 
     @include mixins.media-mobile-s {
-     height: var(--height-xl);
+      height: var(--height-xl);
     }
   }
 

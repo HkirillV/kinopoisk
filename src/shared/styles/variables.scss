@@ -27,8 +27,11 @@
   --height-xl: 44px;
   --height-xxl: 48px;
 
+  --border-radius: 50%;
   --border-radius-sm: 6px;
   --border-radius-md: 16px;
+
+
 
   --animation-width: 270px;
   @include mixins.media-mobile-s {

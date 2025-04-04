@@ -1,5 +1,15 @@
+@use "@/shared/styles/mixins.scss";
+
 .genre {
   &__list {
     display: flex;
+  }
+
+  & {
+    @include mixins.fluid-text(11, 10);
+
+    & {
+      color: var(--basic-gold);
+    }
   }
 }

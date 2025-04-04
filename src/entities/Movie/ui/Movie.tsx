@@ -34,7 +34,7 @@ export const Movie = () => {
                   loading="lazy"
                   alt="/"
                 />
-                <h4 className="movie__title">{nameRu}</h4>
+                <h5 className="movie__title">{nameRu}</h5>
                 <Genre className="movie__genre">
                   {genres}
                 </Genre>

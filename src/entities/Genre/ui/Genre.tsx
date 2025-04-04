@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { IGenre } from "@/shared/types/movieTypes";
 import { addWithIdElement }  from "@/shared/lib/utils/addWithIdElement";
 
-import "./Genre.scss"
+import "./Genre.scss";
 
 interface IGenreProps {
   className?: string;

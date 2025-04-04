@@ -7,27 +7,33 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    gap: 25px 10px;
+    gap: 10px;
   }
 
   &__item {
     position: relative;
+    display: flex;
+    flex-direction: column;
     max-width: 200px;
+    height: 380px;
   }
 
   &__title {
     margin-top: 10px;
   }
 
-  &__genre {
-    @include mixins.fluid-text(12, 12);
-    color: var(--basic-gold);
-    max-width: 200px;
-  }
-
   &__rating {
     position: absolute;
-    top: 0;
-    z-index: 10;
+    top: 5px;
+    left: 5px;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 38px;
+    max-width: 38px;
+    width: 100%;
+    border-radius: var(--border-radius);
+    background-color: var(--base-color-background);
   }
 }
