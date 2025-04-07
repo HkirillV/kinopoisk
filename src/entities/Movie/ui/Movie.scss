@@ -2,24 +2,26 @@
 
 .movie {
   margin-top: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+  height: 380px;
 
-  &__list {
+  &-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 10px;
-  }
 
-  &__item {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    max-width: 200px;
-    height: 380px;
+    &__link {
+      text-decoration: none;
+    }
   }
 
   &__title {
     margin-top: 10px;
+    color: var(--basic-white);
   }
 
   &__rating {
@@ -33,7 +35,16 @@
     height: 38px;
     max-width: 38px;
     width: 100%;
+    color: var(--basic-white);
     border-radius: var(--border-radius);
     background-color: var(--base-color-background);
+
+    &-red {
+      border: 2px solid var(--basic-red);
+    }
+
+    &-orange {
+      border: 2px solid var(--basic-orange);
+    }
   }
 }
