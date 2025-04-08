@@ -8,17 +8,6 @@
   max-width: 200px;
   height: 380px;
 
-  &-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 10px;
-
-    &__link {
-      text-decoration: none;
-    }
-  }
-
   &__title {
     margin-top: 10px;
     color: var(--basic-white);

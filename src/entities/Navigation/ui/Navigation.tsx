@@ -24,22 +24,22 @@ const navigationsLink: Array<INavigationLink> = [
   {
     id: 2,
     title: "Фильмы",
-    href: "/",
+    href: "/movies",
   },
   {
     id: 3,
     title: "Сериалы",
-    href: "/",
+    href: "/series",
   },
   {
     id: 4,
     title: "Мультфильмы",
-    href: "/",
+    href: "/animation",
   },
   {
     id: 5,
     title: "ТВ",
-    href: "/",
+    href: "/tvplus",
   }
 ]
 

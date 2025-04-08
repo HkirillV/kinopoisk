@@ -8,9 +8,9 @@ import "./Movie.scss";
 
 export const Movie: FC<IMovie> = (props) => {
   const {
-    nameRu,
-    posterUrl,
-    ratingKinopoisk,
+    name,
+    poster,
+    rating,
     genres
   } = props
 
@@ -18,23 +18,23 @@ export const Movie: FC<IMovie> = (props) => {
     <div className="movie">
       <Icon
         className="movie__image"
-        src={posterUrl}
+        src={poster.url}
         width="200"
         height="200"
         loading="lazy"
         alt="/"
       />
-      <h5 className="movie__title">{nameRu}</h5>
+      <h5 className="movie__title">{name}</h5>
       <Genre className="movie__genre">
         {genres}
       </Genre>
       <div
         className={classNames("movie__rating",
-          ratingKinopoisk >= 9 ?
+          rating.imdb >= 9 ?
             "movie__rating-red" :
             "movie__rating-orange"
         )}>
-        {ratingKinopoisk}
+        {rating.imdb}
       </div>
     </div>
   )

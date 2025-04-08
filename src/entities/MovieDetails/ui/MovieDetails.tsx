@@ -14,11 +14,11 @@ export const MovieDetails = () => {
 
   const movieIdNumber = Number(movieId);
 
-  const movie = movies.find((movie) => movie.kinopoiskId === movieIdNumber);
+  const movie = movies.find((movie) => movie.id === movieIdNumber);
 
   useEffect(() => {
     setMovieDetails(movie)
-  }, [movieId]);
+  }, [movie]);
 
   return (
     <div className="movie-details">
@@ -26,10 +26,10 @@ export const MovieDetails = () => {
       {
         movieDetails && (
           <Movie
-            kinopoiskId={movieDetails.kinopoiskId}
-            nameRu={movieDetails.nameRu}
-            posterUrl={movieDetails.posterUrl}
-            ratingKinopoisk={movieDetails.ratingKinopoisk}
+            id={movieDetails.id}
+            name={movieDetails.name}
+            poster={movieDetails.poster}
+            rating={movieDetails.rating}
             genres={movieDetails.genres}
           />
         )

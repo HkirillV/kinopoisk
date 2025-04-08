@@ -1,12 +1,20 @@
 export interface IGenre {
-  genre: string;
+  name: string;
+}
+
+export interface IRating {
+  imdb: number
+}
+
+export interface IPoster {
+  url: string
 }
 
 export interface IMovie {
-  kinopoiskId: number;
-  nameRu: string;
-  posterUrl: string;
-  ratingKinopoisk: number;
+  id: number;
+  name: string;
+  poster: IPoster;
+  rating: IRating;
   genres: IGenre[]
 }
 

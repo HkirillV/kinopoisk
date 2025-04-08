@@ -22,9 +22,9 @@ export const Genre: FC<IGenreProps> = (props) => {
     <div className={classNames(className, "genre")}>
       <ul className="genre__list">
         {
-          genreWithId.map(({genre, id}, index) => (
+          genreWithId.map(({name, id}, index) => (
             <li className="genre__item" key={id}>
-              {genre}
+              {name}
               {index < genreWithId.length - 1 && ", "}
             </li>
           ))
