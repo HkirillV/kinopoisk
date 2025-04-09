@@ -1,5 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { MoviesState, IMovie } from "@/shared/types/movieTypes";
+import { IMovie } from "@/shared/types/movieTypes";
+
+interface MoviesState {
+  list: IMovie[];
+}
 
 const initialState: MoviesState = {
   list: [],

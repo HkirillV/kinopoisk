@@ -17,7 +17,3 @@ export interface IMovie {
   rating: IRating;
   genres: IGenre[]
 }
-
-export interface MoviesState {
-  list: IMovie[];
-}

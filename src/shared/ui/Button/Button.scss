@@ -3,4 +3,13 @@
 .button {
   @include mixins.flex-center();
   font-weight: 700;
+  padding-inline: 16px;
+  height: var(--height-xxl);
+  border-radius: var(--border-radius-md);
+  color: var(--basic-white);
+  background-color: var(--basic-extra-light-rgba);
+
+  @include mixins.hover {
+    opacity: 0.7;
+  }
 }
