@@ -5,7 +5,7 @@ import "./Icon.scss";
 
 interface IIcon {
   className: string,
-  src: string,
+  src?: string,
   width: string,
   height: string,
   loading: "eager" | "lazy" | undefined,

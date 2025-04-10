@@ -5,7 +5,7 @@ import { kinopoiskAPI } from "@/shared/api/kinopoiskAPI";
 import { addMovies } from "@/shared/slices/moviesSlice";
 import { Header } from "@/widgets/Header/ui";
 import { Button } from "@/shared/ui/Button";
-import { Movie } from "@/entities/Movie/ui";
+import { MediaElement } from "@/entities/MediaElement/ui";
 
 import "./Movies.scss";
 
@@ -29,7 +29,7 @@ export const Movies = () => {
             movies.map(({kinopoiskId, nameRu, posterUrl, ratingKinopoisk, genres}) => (
               <li className="movies-list__item" key={kinopoiskId}>
                 <Button className="movies-list__link" href={`/movies/${kinopoiskId}`}>
-                  <Movie
+                  <MediaElement
                     kinopoiskId={kinopoiskId}
                     nameRu={nameRu}
                     posterUrl={posterUrl}

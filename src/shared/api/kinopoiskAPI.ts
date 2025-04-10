@@ -1,14 +1,25 @@
 import axiosClient from "@/shared/api/axiosClient";
-import { IMovie } from "@/shared/types/movieTypes";
+import { IMediaElement  } from "@/shared/types/mediaTypes";
 
 export const kinopoiskAPI = {
   getMovies: async () => {
     const res = await axiosClient.get("/movie?page=5&limit=30&lists=top250");
-    const newItems: IMovie[] = res.data.docs.map((item: IMovie) => ({
+    const newItems: IMediaElement[] = res.data.docs.map((item: IMediaElement) => ({
       ...item,
       genres: item.genres.slice(0, 3)
     }));
 
     return newItems;
   },
+
+  getSeries: async () => {
+    const res = await axiosClient.get("/movie?page=1&limit=10&type=tv-series&typeNumber=2");
+    console.log(res.data.docs);
+    const newItems: IMediaElement[] = res.data.docs.map((item: IMediaElement) => ({
+      ...item,
+      genres: item.genres.slice(0, 3)
+    }));
+
+    return newItems;
+  }
 }

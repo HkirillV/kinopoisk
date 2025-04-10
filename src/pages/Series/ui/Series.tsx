@@ -1,22 +1,22 @@
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
-import { useEffect } from 'react';
-import { kinopoiskAPI } from '@/shared/api/kinopoiskAPI';
-import { addMovies } from '@/shared/slices/moviesSlice';
-import { Header } from '@/widgets/Header/ui';
-import { Button } from '@/shared/ui/Button';
-import { Movie } from '@/entities/Movie/ui';
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
+import { useAppSelector } from "@/shared/lib/hooks/useAppSelector";
+import { useEffect } from "react";
+import { kinopoiskAPI } from "@/shared/api/kinopoiskAPI";
+import { addSeries } from "@/shared/slices/seriesSlice";
+import { Header } from "@/widgets/Header/ui";
+import { Button } from "@/shared/ui/Button";
+import { MediaElement } from "@/entities/MediaElement/ui";
 
 import "./Series.scss";
 
 export const Series = () => {
   const dispatch = useAppDispatch();
-  const movies = useAppSelector(state => state.movies.list);
+  const series = useAppSelector(state => state.series.list);
 
   useEffect(() => {
-    kinopoiskAPI.getMovies()
+    kinopoiskAPI.getSeries()
       .then(res => {
-        dispatch(addMovies(res));
+        dispatch(addSeries(res));
       })
   }, [dispatch]);
 
@@ -25,17 +25,29 @@ export const Series = () => {
       <Header/>
       <ul className="series__list">
         {
-          movies.length > 0 && (
-            movies.map((movie) => (
-              <li className="series__item" key={movie.kinopoiskId}>
-                <Button className="series__link" href={`/movie/${movie.kinopoiskId}`}>
-                  <Movie {...movie}/>
+          series.length > 0 && (
+            series.map((serial) => (
+              <li className="series__item" key={serial.id}>
+                <Button className="series__link" href={`/series/${serial.id}`}>
+                  <MediaElement {...serial}/>
                 </Button>
               </li>
             ))
           )
         }
       </ul>
+      {/*<div className="series__footer">*/}
+      {/*  {*/}
+      {/*    showMoreMovies && (*/}
+      {/*      <Button*/}
+      {/*        className="button"*/}
+      {/*        onClick={onShowMore}*/}
+      {/*      >*/}
+      {/*        Показать еще*/}
+      {/*      </Button>*/}
+      {/*    )*/}
+      {/*  }*/}
+      {/*</div>*/}
     </div>
   )
 }

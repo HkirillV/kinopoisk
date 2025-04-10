@@ -6,13 +6,13 @@ import { kinopoiskAPI } from "@/shared/api/kinopoiskAPI";
 import { addMovies } from "@/shared/slices/moviesSlice";
 import { MAX_NUMBER_MOVIES_PAGE } from "@/shared/lib/config/constans";
 import { Header } from "@/widgets/Header/ui";
-import { Movie } from "@/entities/Movie/ui";
-import { IMovie } from "@/shared/types/movieTypes";
+import { MediaElement } from "@/entities/MediaElement/ui";
+import { IMediaElement } from "@/shared/types/mediaTypes";
 
 import "./Home.scss";
 
 export const Home = () => {
-  const [displayedMovies, setDisplayedMovies] = useState<IMovie[]>([]);
+  const [displayedMovies, setDisplayedMovies] = useState<IMediaElement []>([]);
   const [showMoreMovies, setShowMoreMovies] = useState(true);
   const dispatch = useAppDispatch();
   const movies = useAppSelector(state => state.movies.list);
@@ -32,8 +32,8 @@ export const Home = () => {
   }, [movies]);
 
   const onShowMore = () => {
-      const nextDisplayedMovies = movies.slice(0, displayedMovies.length + MAX_NUMBER_MOVIES_PAGE);
-      setDisplayedMovies(nextDisplayedMovies);
+    const nextDisplayedMovies = movies.slice(0, displayedMovies.length + MAX_NUMBER_MOVIES_PAGE);
+    setDisplayedMovies(nextDisplayedMovies);
 
     if (nextDisplayedMovies.length >= movies.length) {
       setShowMoreMovies(false);
@@ -49,7 +49,7 @@ export const Home = () => {
             displayedMovies.map((movie) => (
               <li className="home__item" key={movie.id}>
                 <Button className="home__link" href={`/movie/${movie.id}`}>
-                  <Movie {...movie}/>
+                  <MediaElement {...movie}/>
                 </Button>
               </li>
             ))

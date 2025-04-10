@@ -11,9 +11,11 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/es/storage";
 import moviesSlice from "@/shared/slices/moviesSlice";
+import seriesSlice from '@/shared/slices/seriesSlice';
 
 const rootReducer = combineReducers({
   movies: moviesSlice,
+  series: seriesSlice,
 })
 
 const persistConfig = {

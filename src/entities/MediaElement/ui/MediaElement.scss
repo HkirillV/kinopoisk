@@ -1,12 +1,16 @@
-@use "@/shared/styles/mixins.scss";
+@use "@/shared/styles/mixins";
 
-.movie {
+.media-element {
   margin-top: 40px;
   position: relative;
   display: flex;
   flex-direction: column;
   max-width: 200px;
   height: 380px;
+
+  &__image {
+    height: 300px;
+  }
 
   &__title {
     margin-top: 10px;
