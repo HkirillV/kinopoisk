@@ -33,11 +33,11 @@ export const MediaElement: FC<IMediaElement> = (props) => {
       </Genre>
       <div
         className={classNames("media-element__rating",
-          rating.imdb >= 9 ?
+          rating?.imdb >= 9 ?
             "media-element__rating-red" :
             "media-element__rating-orange"
         )}>
-        {rating.imdb}
+        {rating?.imdb}
       </div>
     </div>
   )

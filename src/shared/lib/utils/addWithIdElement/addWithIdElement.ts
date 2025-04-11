@@ -1,14 +1,10 @@
 import { v4 as uuidv4 } from "uuid";
 
-interface BaseObject {
-  name?: string;
+interface IProps {
+  name: string;
 }
 
-interface BaseObjectWithId extends BaseObject  {
-  id: string;
-}
-
-export const addWithIdElement = <T extends BaseObject >(elements: T[]): BaseObjectWithId[] => {
+export const addWithIdElement = (elements: IProps[])=> {
   return elements.map((element) => ({
       ...element,
       id: uuidv4()

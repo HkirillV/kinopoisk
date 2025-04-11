@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IMediaElement } from "@/shared/types/mediaTypes";
 
-interface SeriesState {
+export interface SeriesState {
   list: IMediaElement [];
 }
 
-const initialState: SeriesState = {
+export const initialState: SeriesState = {
   list: [],
 }
 

@@ -18,8 +18,8 @@ const AppRouter = () => {
           <Route path="/series" element={<Series/>}/>
           <Route path="/animation" element={<Animation/>}/>
           <Route path="/tvplus" element={<Tvplus/>}/>
-          <Route path="/movie/:mediaId" element={<MediaDetails/>}/>
-          <Route path="/series/:mediaId" element={<MediaDetails/>}/>
+          <Route path="/film/:mediaId" element={<MediaDetails/>}/>
+          <Route path="/serial/:mediaId" element={<MediaDetails/>}/>
           <Route path="*" element={<NotFound/>}/>
         </Routes>
       </Container>

@@ -7,15 +7,15 @@ export interface IRating {
 }
 
 export interface IPoster {
-  url?: string
+  url: string
 }
 
 export interface IMediaElement {
   id: number,
-  name?: string,
+  name: string,
   alternativeName: string,
-  type: string,
-  poster?: IPoster,
+  type?: string,
+  poster: IPoster,
   rating: IRating,
   genres: IGenre[]
 }

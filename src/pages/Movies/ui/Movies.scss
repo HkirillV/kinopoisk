@@ -1,0 +1,21 @@
+.movies {
+  padding-bottom: 40px;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 10px;
+    padding-bottom: 40px;
+  }
+
+  &__link {
+    text-decoration: none;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

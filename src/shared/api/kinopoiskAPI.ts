@@ -13,8 +13,7 @@ export const kinopoiskAPI = {
   },
 
   getSeries: async () => {
-    const res = await axiosClient.get("/movie?page=1&limit=10&type=tv-series&typeNumber=2");
-    console.log(res.data.docs);
+    const res = await axiosClient.get("/movie?page=5&limit=30&type=tv-series&typeNumber=2");
     const newItems: IMediaElement[] = res.data.docs.map((item: IMediaElement) => ({
       ...item,
       genres: item.genres.slice(0, 3)

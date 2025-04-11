@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IMovie } from "@/shared/types/mediaTypes";
+import { IMediaElement } from "@/shared/types/mediaTypes";
 
-interface MoviesState {
-  list: IMovie[];
+export interface MoviesState {
+  list: IMediaElement [];
 }
 
-const initialState: MoviesState = {
+export const initialState: MoviesState = {
   list: [],
 }
 
@@ -13,7 +13,7 @@ const moviesSlice = createSlice({
   name: "movies",
   initialState,
   reducers: {
-    addMovies: (state, action: PayloadAction<IMovie[]>) => {
+    addMovies: (state, action: PayloadAction<IMediaElement[]>) => {
       state.list = action.payload;
     }
   }

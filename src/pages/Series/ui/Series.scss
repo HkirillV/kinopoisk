@@ -1,4 +1,6 @@
 .series {
+  padding-bottom: 40px;
+
   &__list {
     display: flex;
     flex-wrap: wrap;
@@ -9,5 +11,11 @@
 
   &__link {
     text-decoration: none;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
