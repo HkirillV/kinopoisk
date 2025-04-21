@@ -3,19 +3,19 @@ export interface IGenre {
 }
 
 export interface IRating {
-  imdb: number
+  imdb: number;
 }
 
 export interface IPoster {
-  url: string
+  url: string;
 }
 
 export interface IMediaElement {
-  id: number,
-  name: string,
-  alternativeName: string,
-  type?: string,
-  poster: IPoster,
-  rating: IRating,
-  genres: IGenre[]
+  id: number;
+  name: string;
+  alternativeName: string;
+  type?: string;
+  poster: IPoster;
+  rating: IRating;
+  genres: IGenre[];
 }

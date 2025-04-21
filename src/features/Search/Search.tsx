@@ -1,11 +1,11 @@
-import { FC, useRef, ChangeEvent } from "react";
+import { useRef, ChangeEvent } from "react";
 import { useOutsideClick } from "@/shared/lib/hooks/useOutsideClick";
 import { RiSearchLine } from "react-icons/ri";
 import classNames from "classnames";
 import { Input } from "@/shared/ui/Input";
 import { Button } from "@/shared/ui/Button";
 
-import "./Search.scss"
+import "./Search.scss";
 
 interface ISearch {
   className: string;
@@ -16,10 +16,10 @@ interface ISearch {
   isOpenSearch: boolean;
   onSearchButtonClick: () => void;
   searchValue: string;
-  setSearchValue: (searchValue: string) => void
+  setSearchValue: (searchValue: string) => void;
 }
 
-export const Search: FC<ISearch> = (props) => {
+export const Search = (props: ISearch) => {
   const {
     className,
     name,
@@ -28,30 +28,29 @@ export const Search: FC<ISearch> = (props) => {
     isOpenSearch,
     searchValue,
     setSearchValue,
-    onSearchButtonClick
-  } = props
+    onSearchButtonClick,
+  } = props;
 
-  const searchRef = useRef(null)
+  const searchRef = useRef(null);
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(e.target.value)
-  }
+    setSearchValue(e.target.value);
+  };
 
-  useOutsideClick(searchRef, onSearchButtonClick, isOpenSearch)
+  useOutsideClick(searchRef, onSearchButtonClick, isOpenSearch);
 
   return (
     <form className={classNames(className, "search")} ref={searchRef}>
       <Button className="search__button" onClick={onSearchButtonClick}>
-        <RiSearchLine className="search__icon"/>
-        {
-          !isOpenSearch && (
-            <span className="search__title">Поиск</span>
-          )
-        }
+        <RiSearchLine className="search__icon" />
+        {!isOpenSearch && <span className="search__title">Поиск</span>}
       </Button>
       <label className="search__label">
         <Input
-          className={classNames("search__input", isOpenSearch ? "is-active-search" : "")}
+          className={classNames(
+            "search__input",
+            isOpenSearch ? "is-active-search" : "",
+          )}
           type={type}
           name={name}
           value={searchValue}
@@ -61,5 +60,5 @@ export const Search: FC<ISearch> = (props) => {
         />
       </label>
     </form>
-  )
-}
+  );
+};

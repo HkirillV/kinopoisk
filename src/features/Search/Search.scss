@@ -1,5 +1,5 @@
-@use "@/shared/styles/mixins.scss";
-@use "@/shared/styles/animations.scss";
+@use "@/shared/styles/mixins";
+@use "@/shared/styles/animations";
 
 .search {
   @include mixins.flex-center(false);

@@ -1,69 +1,44 @@
-import React, { FC } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import classNames from "classnames";
 
 import "./Button.scss";
 
 interface IButton {
-  readonly children: React.ReactNode,
-  readonly type?: "button" | "submit" | "reset",
-  readonly href?: string,
-  readonly className?: string,
-  readonly target?: "_blank" | "_self" | "_parent" | "_top",
-  readonly onClick?: () => void,
+  children: React.ReactNode;
+  type?: HTMLButtonElement["type"];
+  href?: string;
+  className?: string;
+  target?: HTMLAnchorElement["target"];
+  mode?: string;
+  onClick?: () => void;
 }
 
-export const Button: FC<IButton> = (props) => {
+export const Button = (props: IButton) => {
   const {
-    children,
     type = "button",
     onClick,
     href,
+    children,
     className = "",
     target,
-  } = props
+    mode,
+  } = props;
 
-  const isLink: boolean = Boolean(href)
-  const isRegularLink: boolean = href ? (
-    href?.startsWith("https://") ||
-    href?.startsWith("www.") ||
-    href?.startsWith("#")
-  ) : false
-
-  const combinedClassName: string = classNames(className, {
-    button: !isLink
-  });
-
-  if (isLink) {
-    if (isRegularLink) {
-      return (
-        <a
-          className={combinedClassName}
-          href={href}
-          target={target}
-        >
-          {children}
-        </a>
-      )
-    }
-
-    return (
-      <Link
-        className={combinedClassName}
-        to={href || "/"}
-        target={target}
-      >
-        {children}
-      </Link>
-    )
-  }
+  const isLink = href !== undefined;
+  const Component = isLink ? "a" : "button";
+  const linkProps = { href, target };
+  const buttonProps = { type };
+  const specificProps = isLink ? linkProps : buttonProps;
 
   return (
-    <button className={combinedClassName}
-            type={type}
-            onClick={onClick}
+    <Component
+      className={classNames(className, {
+        [`button--${mode}`]: mode,
+      })}
+      {...specificProps}
+      onClick={onClick}
     >
       {children}
-    </button>
-  )
-}
+    </Component>
+  );
+};

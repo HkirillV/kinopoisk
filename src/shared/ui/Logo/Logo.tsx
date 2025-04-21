@@ -1,6 +1,5 @@
-import { FC } from "react"
 import classNames from "classnames";
-import { Button } from "@/shared/ui/Button";
+import { Link } from "react-router-dom";
 import logo from "@/shared/assets/icons/logo.svg";
 import { Icon } from "@/shared/ui/Icon";
 
@@ -11,14 +10,11 @@ interface ILogo {
 
 import "./Logo.scss";
 
-export const Logo: FC<ILogo> = (props) => {
-  const {
-    className,
-    href
-  } = props
+export const Logo = (props: ILogo) => {
+  const { className, href } = props;
 
   return (
-    <Button className={classNames(className, "logo")} href={href}>
+    <Link className={classNames(className, "logo")} to={href}>
       <Icon
         className="logo__icon"
         src={logo}
@@ -27,6 +23,6 @@ export const Logo: FC<ILogo> = (props) => {
         loading="lazy"
         alt="/"
       />
-    </Button>
-  )
-}
+    </Link>
+  );
+};

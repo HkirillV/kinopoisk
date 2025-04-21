@@ -1,26 +1,18 @@
-import { FC } from "react";
 import classNames from "classnames";
 
 import "./Icon.scss";
 
 interface IIcon {
-  className: string,
-  src?: string,
-  width: string,
-  height: string,
-  loading: "eager" | "lazy" | undefined,
-  alt: string,
+  className: string;
+  src?: string;
+  width: string;
+  height: string;
+  loading: "eager" | "lazy" | undefined;
+  alt: string;
 }
 
-export const Icon: FC<IIcon> = (props) => {
-  const {
-    className,
-    src,
-    width,
-    height,
-    loading,
-    alt
-  } = props
+export const Icon = (props: IIcon) => {
+  const { className, src, width, height, loading, alt } = props;
 
   return (
     <img
@@ -31,5 +23,5 @@ export const Icon: FC<IIcon> = (props) => {
       loading={loading}
       alt={alt}
     />
-  )
-}
+  );
+};

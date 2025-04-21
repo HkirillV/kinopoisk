@@ -1,7 +1,7 @@
-import { FC, ChangeEvent } from "react";
+import { ChangeEvent } from "react";
 import classNames from "classnames";
 
-import "./Input.scss"
+import "./Input.scss";
 
 interface IInput {
   className: string;
@@ -13,16 +13,9 @@ interface IInput {
   placeholder?: string;
 }
 
-export const Input: FC<IInput> = (props) => {
-  const {
-    className,
-    type,
-    name,
-    value,
-    onChange,
-    disabled,
-    placeholder,
-  } = props
+export const Input = (props: IInput) => {
+  const { className, type, name, value, onChange, disabled, placeholder } =
+    props;
 
   return (
     <input
@@ -34,5 +27,5 @@ export const Input: FC<IInput> = (props) => {
       onChange={onChange}
       placeholder={placeholder}
     />
-  )
-}
+  );
+};

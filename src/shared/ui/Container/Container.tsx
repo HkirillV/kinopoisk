@@ -1,19 +1,13 @@
-import { FC, JSX } from "react";
+import { JSX } from "react";
 
 interface IContainer {
   children: JSX.Element;
 }
 
-import "./Container.scss"
+import "./Container.scss";
 
-export const Container: FC<IContainer> = (props) => {
-  const {
-    children
-  } = props;
+export const Container = (props: IContainer) => {
+  const { children } = props;
 
-  return (
-      <div className="container">
-        {children}
-      </div>
-  )
-}
+  return <div className="container">{children}</div>;
+};
