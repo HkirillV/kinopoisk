@@ -7,7 +7,7 @@ interface IIcon {
   src?: string;
   width: string;
   height: string;
-  loading: "eager" | "lazy" | undefined;
+  loading?: "eager" | "lazy" | undefined;
   alt: string;
 }
 

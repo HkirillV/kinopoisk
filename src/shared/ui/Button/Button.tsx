@@ -1,19 +1,18 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import classNames from "classnames";
 
 import "./Button.scss";
 
-interface IButton {
-  children: React.ReactNode;
+type ButtonProps = PropsWithChildren<{
   type?: HTMLButtonElement["type"];
   href?: string;
   className?: string;
   target?: HTMLAnchorElement["target"];
   mode?: string;
   onClick?: () => void;
-}
+}>;
 
-export const Button = (props: IButton) => {
+export const Button = (props: ButtonProps) => {
   const {
     type = "button",
     onClick,

@@ -15,14 +15,7 @@ export const Logo = (props: ILogo) => {
 
   return (
     <Link className={classNames(className, "logo")} to={href}>
-      <Icon
-        className="logo__icon"
-        src={logo}
-        width="66"
-        height="66"
-        loading="lazy"
-        alt="/"
-      />
+      <Icon className="logo__icon" src={logo} width="66" height="66" alt="/" />
     </Link>
   );
 };

@@ -1,13 +1,9 @@
-import { JSX } from "react";
-
-interface IContainer {
-  children: JSX.Element;
-}
+import React, { PropsWithChildren } from "react";
 
 import "./Container.scss";
 
-export const Container = (props: IContainer) => {
-  const { children } = props;
+type Props = PropsWithChildren<Record<string, never>>;
 
+export const Container: React.FC<Props> = ({ children }) => {
   return <div className="container">{children}</div>;
 };

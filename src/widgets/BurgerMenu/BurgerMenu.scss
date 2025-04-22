@@ -4,6 +4,7 @@
   position: fixed;
   top: 0;
   right: 0;
+  z-index: 1000;
   width: 100%;
   height: 100%;
   transform: translateX(150%);
@@ -46,6 +47,7 @@
   }
 
   &__close-button {
+    @include mixins.flex-center();
     @include mixins.square(48px);
     position: relative;
     border-radius: var(--border-radius-sm);
@@ -77,15 +79,12 @@
 }
 
 .button__burger-menu {
+  @include mixins.flex-center();
   @include mixins.square(48px);
   position: relative;
   border-radius: var(--border-radius-sm);
   color: var(--basic-gray);
   background-color: transparent;
-
-  @include mixins.media-mobile-s {
-    margin-left: 6px;
-  }
 
   &::after {
     content: "";

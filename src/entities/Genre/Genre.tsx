@@ -1,15 +1,16 @@
+import React from "react";
 import classNames from "classnames";
 import { IGenre } from "@/shared/types/mediaTypes";
 import { addWithIdElement } from "@/shared/lib/utils/addWithIdElement";
 
 import "./Genre.scss";
 
-interface IGenreProps {
+type GenreProps = {
   className?: string;
   children: IGenre[];
-}
+};
 
-export const Genre = (props: IGenreProps) => {
+export const Genre = (props: GenreProps) => {
   const { className, children } = props;
 
   const genreWithId = addWithIdElement(children);

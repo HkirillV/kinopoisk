@@ -26,7 +26,7 @@
   }
 
   &__auth {
-    @include mixins.media-mobile-s {
+    @include mixins.media-tablet-xs {
       display: none;
       visibility: hidden;
     }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Logo } from "@/shared/ui/Logo";
 import { Navigation } from "@/entities/Navigation";
 import { Search } from "@/features/Search";
@@ -14,14 +14,12 @@ export const Header = () => {
   const [searchValue, setSearchValue] = useState<string>("");
   const [isOpenBurgerMenu, setIsOpenBurgerMenu] = useState<boolean>(false);
 
+  useEffect(() => {
+    setSearchValue("");
+  }, [isOpenSearch]);
+
   const onSearchButtonClick = () => {
-    setIsOpenSearch((prevState: boolean) => {
-      const newState: boolean = !prevState;
-      if (newState) {
-        setSearchValue("");
-      }
-      return newState;
-    });
+    setIsOpenSearch((prevState) => !prevState);
   };
 
   const onAuthButtonClick = () => {
