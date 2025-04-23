@@ -1,6 +1,6 @@
-import { BrowserRouter, Routes, Route } from "react-router";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Container } from "@/shared/ui/Container";
-import { Layout } from "@/pages/Layout";
+import { Layout } from "@/entities/Layout";
 import { Home } from "@/pages/Home";
 import { Movies } from "@/pages/Movies";
 import { Series } from "@/pages/Series";
@@ -15,7 +15,7 @@ const Router = () => {
       <Container>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route path="/" element={<Home />} />
+            <Route index element={<Home />} />
             <Route path="/movies" element={<Movies />} />
             <Route path="/series" element={<Series />} />
             <Route path="/animation" element={<Animation />} />

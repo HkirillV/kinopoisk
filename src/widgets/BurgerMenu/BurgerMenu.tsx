@@ -22,7 +22,9 @@ export const BurgerMenu = (props: IBurgerMenu) => {
 
   return (
     <div
-      className={classNames("burger-menu", { "is-active": isOpenBurgerMenu })}
+      className={classNames("burger-menu", {
+        "is-active": isOpenBurgerMenu,
+      })}
     >
       <div className="burger-menu__blur" onClick={onBurgerMenuButtonClick} />
       <div className="burger-menu__body">
