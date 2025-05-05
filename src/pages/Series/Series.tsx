@@ -17,7 +17,7 @@ export const Series = () => {
   const series = useAppSelector((state) => state.series.list);
 
   useEffect(() => {
-    kinopoiskAPI.getSeries().then((res) => {
+    kinopoiskAPI.getSerials().then((res) => {
       dispatch(addSeries(res));
     });
   }, [dispatch]);

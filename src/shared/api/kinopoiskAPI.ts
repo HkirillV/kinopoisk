@@ -21,13 +21,32 @@ export const kinopoiskAPI = {
     return newItems;
   },
 
-  getSeries: async () => {
+  getSerials: async () => {
     const res = await axiosClient.get("/movie", {
       params: {
         page: 5,
         limit: 30,
         type: "tv-series",
         typeNumber: 2,
+      },
+    });
+
+    const newItems: IMediaElement[] = res.data.docs.map(
+      (item: IMediaElement) => ({
+        ...item,
+        genres: item.genres ? item.genres.slice(0, 3) : [{ name: "драма" }],
+      }),
+    );
+
+    return newItems;
+  },
+
+  getCartoons: async () => {
+    const res = await axiosClient.get("/movie", {
+      params: {
+        page: 5,
+        limit: 30,
+        type: "cartoon",
       },
     });
 

@@ -5,7 +5,7 @@ import { Home } from "@/pages/Home";
 import { Movies } from "@/pages/Movies";
 import { Series } from "@/pages/Series";
 import { Tvplus } from "@/pages/Tvplus";
-import { Animation } from "@/pages/Animation";
+import { Cartoon } from "pages/Cartoon";
 import { MediaDetails } from "@/entities/MediaDetails";
 import { NotFound } from "@/pages/NotFound";
 
@@ -18,7 +18,7 @@ const Router = () => {
             <Route index element={<Home />} />
             <Route path="/movies" element={<Movies />} />
             <Route path="/series" element={<Series />} />
-            <Route path="/animation" element={<Animation />} />
+            <Route path="/animation" element={<Cartoon />} />
             <Route path="/tvplus" element={<Tvplus />} />
             <Route path="/film/:mediaId" element={<MediaDetails />} />
             <Route path="/serial/:mediaId" element={<MediaDetails />} />

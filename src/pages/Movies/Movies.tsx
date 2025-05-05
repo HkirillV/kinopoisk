@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { useAppSelector } from "@/shared/lib/hooks/useAppSelector";
 import { kinopoiskAPI } from "@/shared/api/kinopoiskAPI";
@@ -46,9 +47,9 @@ export const Movies = () => {
       <ul className="movies__list">
         {displayedMovies?.map((movie) => (
           <li className="movies__item" key={movie.id}>
-            <Button className="movies__link" href={`/film/${movie.id}`}>
+            <Link className="movies__link" to={`/film/${movie.id}`}>
               <MediaElement {...movie} />
-            </Button>
+            </Link>
           </li>
         ))}
       </ul>
