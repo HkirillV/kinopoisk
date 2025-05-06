@@ -33,7 +33,7 @@ const navigationsLink: Array<INavigationLink> = [
   {
     id: 4,
     title: "Мультфильмы",
-    href: "/animation",
+    href: "/cartoon",
   },
   {
     id: 5,
